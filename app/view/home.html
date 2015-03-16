@@ -1,0 +1,56 @@
+<div class="col-md-8">
+    <h3 class="text-center">BORANG ANGGOTA<br>ASOSIASI PROFESOR INDONESIA (API)</h3>
+    <p class="text-right">Jakarta, 1 Oktober 2014</p>
+    <p>Hal: Kesediaan Menjadi Anggota API</p>
+    <p>Kepada yth.<br>Sejawat Profesor Perguruan Tinggi<br>Di Indonesia</p>
+    <p>Melalui laman API ini, kami lampirkan borang yang perlu diisi untuk menjadi anggota API. Undangan ini kami sampaikan kepada semua Sejawat, para profesor di Universitas/Institut/Perguruan Tinggi di seluruh Indonesia, baik swasta maupun negri, yang aktif maupun yang sudah tidak aktif.</p>
+    <p>Dengan adanya isian ini di dalam laman API, para mahasiswa, calon mahasiswa, guru-guru, orangtua, lembaga terkait, pengguna dan semua pihak yang memerlukan kepakaran kita, yang memerlukan tulisan dan berbagai hal yang mencerahkannya, dari tanah air maupun dari manca Negara, dapat terbantu.</p>
+    <p>Semoga dengan kehadiran aktif para Sejawat sebagai anggota API, kita dapat mencapai tujuan API untuk “1. Membantu mewujudkan Perguruan Tinggi yang berkualitas; 2. Mendorong Tridarma Perguruan Tinggi; 3. Memperjuangkan harkat dan martabat Guru Besar termasuk    kesejahteraannya; 4. Menjembatani kerjasama antara Perguruan Tinggi dan Pemerintah untuk menyelesaikan masalah bangsa; dan 5. Mengoptimalkan peran Perguruan Tinggi untuk membantu program pembangunan pemerintah dan meningkatkan kesejahteraan masyarakat.”</p>
+    <p>Sambil menunggu dukungan dan kerja sama Sejawat, kami sampaikan terima kasih.</p>
+    <p>Dengan salam dan hormat,<br><br></p>
+    <p>Pengurus Pusat API.</p><br><br>
+    <p>NB: Borang yang sudah diisi dapat diunggah ke email milis Pengurus.  </p>
+    
+    <div class="row latest_news">
+        <div class="col-md-12">
+        <h3>Berita Terbaru</h3>  
+        {if $berita}
+            <div class="row">
+            {foreach $berita as $val}
+                <div class="col-md-4 latest_news">
+                    <a href="{$basedomain}news/berita_detail/?id={$val.id}" title="{$val.title}">
+                        <img src="{$basedomain}public_assets/news/{$val.image}" class="img-responsive">
+                    </a>
+                    <div class="time-ago"><a href="{$basedomain}news/berita_detail/?id={$val.id}"> {$val.changeDate}</a></div>
+                    <a href="{$basedomain}news/berita_detail/?id={$val.id}">{$val.title}</a>
+                </div>
+            {/foreach}
+            </div>
+        {/if}
+            {*}
+            <div class="col-md-4 latest_news">
+                <a href="{$basedomain}news/berita_detail" title="Banana">
+                    <img src="{$basedomain}public_assets/news/thumbs/sample.jpg" class="img-responsive">
+                </a>
+                <div class="time-ago"><a href="{$basedomain}news/berita_detail"> 1 jam lalu</a></div>
+                <a href="{$basedomain}news/berita_detail">Donec id elit non mi porta gravida at eget metus. Fusce dapibus...</a>
+            </div>
+            
+            <div class="col-md-4 latest_news">
+                <a href="{$basedomain}news/berita_detail" title="Banana">
+                    <img src="{$basedomain}public_assets/news/thumbs/sample.jpg" class="img-responsive">
+                </a>
+                <div class="time-ago"><a href="{$basedomain}news/berita_detail"> 1 jam lalu</a></div>
+                <a href="{$basedomain}news/berita_detail">Donec id elit non mi porta gravida at eget metus. Fusce dapibus...</a>
+            </div>
+            {/*}
+            </div>
+    </div>
+    
+</div>
+
+</div>
+
+</div>
+
+</div>

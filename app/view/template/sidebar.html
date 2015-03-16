@@ -1,0 +1,66 @@
+<div class="container api-content">        
+    <div class="row">
+        <div class="col-md-4">
+
+          <!-- calendar - START -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="api-calendar">
+                <h4 class="title text-center">Agenda</h4>
+                <div class="calendar"></div>
+                <div class="endCalendar"></div>
+              </div>
+            </div>
+          </div>
+          <!-- calendar - END -->
+        
+          {if $page.function !="agenda"}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="api-kliping-side">
+                  <h4 class="text-center">Kliping Kegiatan</h4>
+                  {if $kliping_index}
+                    {foreach $kliping_index as $val}
+                  <div class="kegiatan">
+                      <p class="date">{$val.changeDate}</p>
+                      <a href="{$basedomain}news/kliping_detail/?id={$val.id}">{$val.title}</a>
+                  </div>
+                    {/foreach}
+                  {/if}
+                  {*}
+                  <div class="kegiatan">
+                      <p class="date">Jumat, 29 Agustus 2014</p>
+                      <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</a>
+                  </div>
+                  <div class="kegiatan">
+                      <p class="date">Jumat, 29 Agustus 2014</p>
+                      <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</a>
+                  </div>
+                  {/*}
+                  <div class="kegiatan all text-center">
+                      <a href="{$basedomain}news/kliping_kegiatan" style="color: #212121;">Semua Kegiatan</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="api-kliping-side">
+                  <h4 class="text-center">Video</h4>
+                  <div class="kegiatan">
+                      <a href="#">TOKOH KITA: MENGENAL LEBIH DEKAT PROF. SUHARDI - JAKTV</a>
+                      <div class="embed-responsive embed-responsive-4by3">
+                        <iframe src="https://www.youtube.com/embed/x0YAneuTUAM" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                  </div>
+                  
+                  <div class="kegiatan all text-center">
+                      <a href="{$basedomain}gallery/video" style="color: #212121;">Semua Video</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+          {/if}
+        
+        </div>
