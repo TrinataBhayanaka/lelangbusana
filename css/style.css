@@ -1,0 +1,24 @@
+body{
+background-color:#E6E3BA;
+}
+.lelangnav{
+ background-color: #1C1711; 
+ background-image: url(images/radial_bg.png); 
+ background-position: center center; 
+ background-repeat: no-repeat; 
+ /* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */
+ background: -webkit-gradient(radial, center center, 0, center center, 460, from(#37342F), to(#1C1711));
+ /* Safari 5.1+, Chrome 10+ */ 
+ background: -webkit-radial-gradient(circle, #37342F, #1C1711); 
+ /* Firefox 3.6+ */ background: -moz-radial-gradient(circle, #37342F, #1C1711);
+ /* IE 10 */ 
+ background: -ms-radial-gradient(circle, #37342F, #1C1711);
+ color:#FFFFFF;
+}
+.loginactive{
+background-color:#E4691B;
+}
+
+.loginactive:hover{
+background-color:#f18947;
+}
