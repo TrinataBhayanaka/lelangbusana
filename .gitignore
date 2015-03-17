@@ -1,1 +1,8 @@
 doc/*
+logs/*
+cache/*
+config/database.php
+tmp/*
+public_assets/*
+admin/cache/*
+admin/logs/*
