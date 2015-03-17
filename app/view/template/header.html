@@ -1,4 +1,31 @@
 <!-- Fixed navbar -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:#26211C;color:#FFF">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel">Form Login</h3>
+      </div>
+      <div class="modal-body">
+       <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Username</label>
+            <input type="text" class="form-control" id="recipient-name" placeholder="type your email">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">PassWord</label>
+            <input type="password" class="form-control" id="recipient-name" placeholder="type your password">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" style="background-color:#26211C;">
+        <button type="button" class="btn" data-dismiss="modal" style="background-color:#E8E8E8">Close</button>
+        <input type="submit" class="btn" Value="Login" style="background-color:#F18947;color:#FFF">
+      </div>
+    </div>
+  </div>
+</div>
     <nav class="navbar navbar-default navbar-fixed-top lelangnav">
         <div class="container">
         <div class="navbar-header">
@@ -14,7 +41,7 @@
         
             <ul class="nav navbar-nav navbar-right">
             
-            <li class="loginactive"><a href="#" style="color:#fff">LOGIN</a></li>
+            <li class="loginactive"><a href="#" style="color:#fff" data-toggle="modal" data-target="#myModal">LOGIN</a></li>
           </ul>
         </div><!--/.nav-collapse -->
         </div>
