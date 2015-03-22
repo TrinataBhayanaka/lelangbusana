@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-03-16 15:56:56
+<?php /* Smarty version Smarty-3.1.15, created on 2015-03-18 07:40:54
          compiled from "app/view/template/footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:69074034555066c36b641a5-88751238%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f92dca19d71cbdfa547321d0b8af0e6488d64b36' => 
     array (
       0 => 'app/view/template/footer.html',
-      1 => 1426496154,
+      1 => 1426635652,
       2 => 'file',
     ),
   ),
@@ -26,11 +26,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55066c36b90f81_92185042')) {function content_55066c36b90f81_92185042($_smarty_tpl) {?><div class="container" style="background-color:#3B382F;width:100%;height:50px;color:#FF6100;font-family:arial">
         <div class="row">
-            <div class="col-xs-3 col-md-3 col-md-offset-1">
-                    copyright&copy; LelangBusana 2014<br/>
+            <div class="col-xs-4 col-md-4 col-md-offset-1"><br/>
+                    copyright&copy; LelangBusana 2014 
                     design by Bhayanaka trinata
             </div>
-            <div class="col-xs-4 col-md-4 col-md-offset-4"><br/>
+            <div class="col-xs-4 col-md-4 col-md-offset-3"><br/>
                     Home  |  Support  |  Term & Condition  |  FAQS  |  Contact US
             </div>
         </div>

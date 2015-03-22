@@ -25,6 +25,19 @@ class home extends Controller {
 
     	return $this->loadView('landing');
     }
+
+    function detail(){
+		
+		
+
+    	return $this->loadView('detail');
+    }
+    function register(){
+		
+		
+
+    	return $this->loadView('register');
+    }
 }
 
 ?>
