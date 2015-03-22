@@ -1,7 +1,7 @@
 doc/*
 logs/*
 cache/*
-config/database.php
+config/*
 tmp/*
 public_assets/*
 admin/cache/*
