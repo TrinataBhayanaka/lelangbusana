@@ -6,7 +6,6 @@ class userHelper extends Database {
         $session = new Session;
         $getSessi = $session->get_session();
         $this->user = $getSessi['login'];
-        $this->prefix = "lelang";
     }
     
     /**
@@ -109,81 +108,5 @@ class userHelper extends Database {
         return false;
 
     } 
-
-    function getCity($all=false, $data=array(), $debug=false)
-    {
-    
-        $filter = "";
-        
-        $provinsi = $data['provinsi'];
-    
-        $kabupaten = $data['kabupaten'];
-        
-        $kecamatan = $data['kecamatan'];
-        
-        if ($all){
-            if ($provinsi) $filter .= " WHERE parent = 0";
-            if ($kabupaten) $filter .= " WHERE parent <> 0";
-            
-        }else{
-        
-            if ($provinsi) $filter .= " WHERE kode_wilayah = {$provinsi}";
-            if ($kabupaten) $filter .= " WHERE kode_wilayah = {$kabupaten}";
-            // if ($kecamatan) $filter .= "AND p.id_kecamatan = {$kecamatan}";
-        }
-        
-        
-        $data = array();
-        
-        $sql = array(
-                'table'=>"{$this->prefix}_city",
-                'field'=>'*',
-                'condition' => "1 {$filter} ORDER BY nama_wilayah",
-                );
-        $res = $this->lazyQuery($sql,$debug);
-
-        if ($res){
-            
-            $data['wilayah'] = $res;
-            // pr($data['wilayah']);
-            if (!$all){
-                foreach ($res as $val){
-                    if ($val['parent']!=0){
-                        $subsql = "SELECT * FROM {$this->prefix}_city WHERE kode_wilayah = {$val['parent']}
-                                ORDER BY nama_wilayah ";
-                        $subres = $this->fetch($subsql,1);
-                        $data['subwilayah'] = $subres;
-                        
-                    }
-                }
-                
-            }
-            
-        }
-        if ($data)return $data;
-        return false;
-    }
-    
-
-    
-    function getDataLokasi($id=false, $iskab=false, $debug=false){
-
-        $filter = "";
-        if ($id) $filter .= "AND kode_wilayah = '{$id}'";
-        if ($iskab) $filter .= "AND parent = 0";
-        else $filter .= "AND parent != 0";
-
-        $sql = array(
-                'table'=>"{$this->prefix}_city",
-                'field'=>'kode_wilayah,nama_wilayah',
-                'condition' => "1 {$filter}",
-                );
-        $result = $this->lazyQuery($sql,$debug);
-        if ($result) return $result;
-        return false;
-    }
-
-
 }
 ?>
-

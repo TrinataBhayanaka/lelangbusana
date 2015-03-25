@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-03-18 07:35:01
+<?php /* Smarty version Smarty-3.1.15, created on 2015-03-18 07:43:06
          compiled from "app/view/template/header.html" */ ?>
 <?php /*%%SmartyHeaderCode:119193434355066c36a96a91-35689625%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '309e1f2f7c56c96d6694de2e6ce3f822ad96efea' => 
     array (
       0 => 'app/view/template/header.html',
-      1 => 1426635297,
+      1 => 1426635783,
       2 => 'file',
     ),
   ),
@@ -65,7 +65,8 @@ home/register">Sign Up(Daftar)</a></li>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" style="color:#fff">Lelang Busana</a>
+          <a class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+" style="color:#fff">Lelang Busana</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         

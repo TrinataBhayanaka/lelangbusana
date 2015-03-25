@@ -6,3 +6,4 @@ tmp/*
 public_assets/*
 admin/cache/*
 admin/logs/*
+admin/config/
