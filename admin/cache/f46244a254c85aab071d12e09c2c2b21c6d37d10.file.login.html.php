@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-03-25 14:39:29
+<?php /* Smarty version Smarty-3.1.15, created on 2015-03-25 15:01:09
          compiled from "view/login.html" */ ?>
 <?php /*%%SmartyHeaderCode:1465313494540f9ed4379307-34079171%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f46244a254c85aab071d12e09c2c2b21c6d37d10' => 
     array (
       0 => 'view/login.html',
-      1 => 1427269166,
+      1 => 1427270465,
       2 => 'file',
     ),
   ),
@@ -88,8 +88,8 @@ login/local" class="form" method="post">
 				</div>
 			</div>
 			<div class="pad-ver">
-				<a href="pages-password-reminder.html" class="btn-link mar-rgt">Forgot password ?</a>
-				<a href="pages-register.html" class="btn-link mar-lft">Create a new account</a>
+				<a href="#" class="btn-link mar-rgt">Forgot password ?</a>
+				<a href="#" class="btn-link mar-lft">Create a new account</a>
 			</div>
 		</div>
 		<!--===================================================-->
