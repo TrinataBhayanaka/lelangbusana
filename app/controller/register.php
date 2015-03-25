@@ -23,10 +23,14 @@ class register extends Controller {
 	
 	function index(){
 
-        
+        $getCity = $this->contentHelper->getCity();
+        // pr($getCity);
+
+        $this->view->assign('city', $getCity);
     	return $this->loadView('register');
     }
     
+
     function local()
     {
         if (isset($_POST['token'])){
@@ -42,6 +46,29 @@ class register extends Controller {
         }
 
         exit;
+    }
+
+    function signup()
+    {
+        global $basedomain;
+        // pr($_POST);
+        if ($_POST['token']){
+
+            $register = $this->userHelper->signUp($_POST);
+            if ($register) redirect($basedomain.'register/status');
+            else redirect($basedomain.'register');
+
+            exit;
+        }
+    }
+
+    function status()
+    {
+
+        $getToken = _g('token');
+
+        $this->view->assign('msg', 'Silahkan verifikasi email anda');
+        return $this->loadView('register_status');
     }
 
     function login(){
@@ -176,16 +203,31 @@ class register extends Controller {
 
     function ajax()
     {
-        $email = _p('email');
+        $email = @_p('email');
 
-        $validate = $this->userHelper->validateEmail($email);
-        if ($validate){
+        if ($email){
 
-            print json_encode(array('status'=>true));
-        }else{
-            print json_encode(array('status'=>false));
+            $validate = $this->userHelper->validateEmail($email);
+            if ($validate){
+
+                print json_encode(array('status'=>true));
+            }else{
+                print json_encode(array('status'=>false));
+            }
         }
+        
 
+        $idprovinsi = @_p('idprovinsi');
+        if ($idprovinsi){
+            $getCity = $this->contentHelper->getCity($idprovinsi);
+            // pr($getCity);
+            if ($getCity){
+
+                print json_encode(array('status'=>true, 'res'=>$getCity));
+            }else{
+                print json_encode(array('status'=>false));
+            }
+        }
         exit;
     }
 

@@ -9,100 +9,43 @@ class contentHelper extends Database {
 		$this->salt = "ovancop1234";
 		$this->token = str_shuffle('cmsaj23y4ywdni237yeisa');
 		$this->date = date('Y-m-d H:i:s');
+
 	}
 
-    function getData($categoryid=null,$articletype=null,$type=1, $id=false)
+    function getCity($cityid=false, $debug=false)
     {
 
         $filter = "";
-        if ($id) $filter .= " AND id = {$id}";
-        $query = "SELECT * FROM {$this->prefix}_news_content WHERE n_status = '1' AND categoryid = '{$categoryid}' AND articleType = '{$articletype}' OR n_status = '0' AND categoryid = '{$categoryid}' AND articleType = '{$articletype}' {$filter} ORDER BY created_date DESC";
-        
-        $result = $this->fetch($query,1);
-        
-        // pr($result);
-        if($result){
+        if ($cityid) $filter .= " AND kode_wilayah = '{$cityid}'";
+        $sql = array(
+                'table'=>"{$this->prefix}_city",
+                'field'=>"*",
+                'condition' => "parent = 0 {$filter}",
+                );
 
-            foreach ($result as $key => $value) {
-
-                $query = "SELECT username FROM admin_member WHERE id={$value['authorid']} LIMIT 1";
-    
-                $username = $this->fetch($query,0);
-        
-                $result[$key]['username'] = $username['username'];
-            }
-            
-        }
-        return $result;
-    }
-    
-	function getNews($id=false, $categoryid=1, $type=1, $start=0, $limit=5)
-	{
-		
-		$filter = "";
-		if ($id) $filter = " AND id = {$id} ";
-
-		$sql = "SELECT * FROM {$this->prefix}_news_content WHERE n_status = 1 AND categoryid = {$categoryid}
-				AND articleType = {$type} {$filter} ORDER BY posted_date DESC LIMIT {$start},{$limit}";
-		// pr($sql);
-		$res = $this->fetch($sql,1);
-		if ($res){
-
-            
-            foreach ($res as $key => $value) {
-                $res[$key]['changeDate'] = changeDate($value['posted_date']);
-            }
-
-            // pr($res);
-            return $res;
-
-        } 
-		return false;
-	}
-
-    function getAgenda($id=false, $categoryid=1, $type=1, $start, $end){
-        $sql = "SELECT * FROM contacts WHERE contact_id BETWEEN 100 AND 200";
-
-        $sql = "SELECT * FROM {$this->prefix}_news_content WHERE n_status = 1 AND categoryid = {$categoryid} AND articleType = {$type} AND posted_date BETWEEN CAST('".$start."' AS DATE) AND CAST('".$end."' AS DATE) ORDER BY posted_date DESC";
-        //pr($sql);exit;
-        $res = $this->fetch($sql,1);
+        $res = $this->lazyQuery($sql,$debug);
         if ($res){
 
-            
             foreach ($res as $key => $value) {
-                $res[$key]['changeDate'] = changeDate($value['posted_date']);
-                $res[$key]['start'] = date("H:i", strtotime($value['posted_date']));
-                $res[$key]['end'] = date("H:i", strtotime($value['expired_date']));
 
+                $sql = array(
+                        'table'=>"{$this->prefix}_city",
+                        'field'=>"*",
+                        'condition' => "parent != 0 AND parent = '{$value['kode_wilayah']}'",
+                        );
+
+                $result = $this->lazyQuery($sql,$debug);
+                
+                if ($result) $res[$key]['city'] = $result;
+                
             }
-
-            //pr($res);
+            
             return $res;
+        }
 
-        } 
         return false;
     }
-	
-	function readNews($url=false)
-	{
-		if(!$url) return false;
-		
-		$urlArticle = clean($url);
-		global $CONFIG;
-		
-		if ($CONFIG['uri']['short']) $field = " shortUrl ";
-		if ($CONFIG['uri']['friendly']) $field = " friendlyUrl ";
-		
-		
-		$sql = "SELECT n.* FROM tbl_news n LEFT JOIN code_url_redirect cr 
-				ON n.id = cr.articleId WHERE cr.{$field} = '{$urlArticle}' LIMIT 1";
-		// pr($sql);
-		$res = $this->fetch($sql);
-		if ($res) return $res;
-		return false;
-		
-	}
-	
+    
 	function createAccount($data,$debug=false)
     {
 

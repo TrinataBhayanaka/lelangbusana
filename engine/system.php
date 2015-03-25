@@ -6,7 +6,7 @@
  */
  
 define ('APPPATH', 'app/');
-define ('CODEKIR', true);
+// define ('CODEKIR', true);
 define ('LIBS', 'libs/');
 define ('LOGS', 'logs/');
 define ('CACHE', 'cache/');

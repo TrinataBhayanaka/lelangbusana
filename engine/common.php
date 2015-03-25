@@ -276,7 +276,7 @@ function uploadFileMultiple($data,$path=null,$ext){
     );
     */
 	logFile(serialize($_FILES[$data]));
-    $result = [];
+    $result = array();
 	foreach($_FILES[$data]['type'] as $filekey => $filevalue){
 	
 	    if (!in_array($_FILES[$data]['type'][$filekey], $CONFIG[$key][$ext])){
