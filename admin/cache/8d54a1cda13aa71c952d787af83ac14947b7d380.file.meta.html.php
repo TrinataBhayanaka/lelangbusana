@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-01-22 21:22:59
+<?php /* Smarty version Smarty-3.1.15, created on 2015-03-25 14:12:50
          compiled from "./view/template/meta.html" */ ?>
 <?php /*%%SmartyHeaderCode:4023078225436044d95f329-62417481%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8d54a1cda13aa71c952d787af83ac14947b7d380' => 
     array (
       0 => './view/template/meta.html',
-      1 => 1417527879,
+      1 => 1427267179,
       2 => 'file',
     ),
   ),
@@ -35,13 +35,25 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <meta name="description" content="">
 	<meta name="author" content="" />
 	
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/googleapis.css" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
 
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/font-awesome.min.css" type="text/css" />		
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
 css/bootstrap.min.css" type="text/css" />	
+
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+css/nifty.min.css" type="text/css" />	
+
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+css/font-awesome.min.css" type="text/css" />	
+
+	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+js/plugins/pace/pace.min.css" type="text/css" />
+
+	<!-- <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+css/googleapis.css" type="text/css">
+
+		
+	
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
 js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css" type="text/css" />
 
@@ -74,7 +86,7 @@ js/plugins/magnific/magnific-popup.css" type="text/css" />
 css/App.css" type="text/css" />
 
 	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/custom.css" type="text/css" />
+css/custom.css" type="text/css" /> -->
     
     <!-- datetimepicker -->
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
