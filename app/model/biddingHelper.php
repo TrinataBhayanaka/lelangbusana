@@ -12,10 +12,10 @@ class biddingHelper extends Database {
 		$this->date = date('Y-m-d H:i:s');
 
         $sessionUser = new Session;
-	    $this->user = $sessionUser->getUser();
+	    // $this->user = $sessionUser->getUser();
     }
 
-    function isMemberAllowToBidding($userid=false)
+    function isMemberAllowToBidding($userid=false,$debug=false)
     {
 
         $filter = "";
@@ -27,7 +27,7 @@ class biddingHelper extends Database {
                 'condition' => "verified = 1 AND n_status = 1 {$filter}",
                 );
 
-        $res = $this->lazyQuery($sql,$debug,2);
+        $res = $this->lazyQuery($sql,$debug);
         if ($res){
             return $res;
         }

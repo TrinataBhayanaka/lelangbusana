@@ -419,7 +419,8 @@ class Database
 			break;
 
 			case '2':
-				/*
+				/*		
+
 				$sql = array(
                 'table'=>'aset',
                 'field'=>'Aset_ID = 1, KodeSatker = 1010',
@@ -427,7 +428,10 @@ class Database
                 );
 				*/
 				$condition = $data['condition'];
-				$limit = intval($data['limit']);
+
+				if (isset($data['limit'])) $limit = intval($data['limit']);
+				else $limit = " ";
+				
 				if ($limit>0) $limit = " LIMIT {$limit}";
 				else $limit = "";
 

@@ -9,7 +9,7 @@ class helper_model extends Database {
 	{
 		$session = new Session;
 		$getSessi = $session->get_session();
-		$this->user = $getSessi['login'];
+		$this->user = $getSessi[0];
 
 	}
 

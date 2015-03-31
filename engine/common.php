@@ -367,14 +367,21 @@ function deleteFile($data=null, $path=null)
 
 function encode($data=false)
 {
-	$hasil = base64_encode(serialize($data));
-	return $hasil;
+	if ($data){
+		$hasil = base64_encode(serialize($data));
+		return $hasil;
+	}
+	
 }
 
 function decode($data=false)
 {
-	$hasil = unserialize(base64_decode($data));
-	return $hasil;
+	
+	if ($data){
+		$hasil = unserialize(base64_decode($data));
+		return $hasil;
+	}
+	
 }
 
 function getindexzip($name=null)

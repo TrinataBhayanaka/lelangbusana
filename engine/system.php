@@ -136,7 +136,7 @@ $DATA['default']['uri'] = @$validation ;
  */
  
 
-// pr($_GET);
+// pr($DATA);
 
 $route = $_SERVER['PHP_SELF'];
 $route = substr($route, strlen('/index.php'));
