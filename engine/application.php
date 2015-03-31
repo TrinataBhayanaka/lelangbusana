@@ -162,13 +162,14 @@ class Application {
 	
 	
 	
-	function load($param=false)
+	function load($param=false, $debug=false)
 	{
 		
 		if (!$param) return false;
 		
 		if ($param['file'] !='') $fileName = $param['file'].'.php';
 		
+		if ($debug){ pr($param['path'].$fileName); exit; }
 		if (is_file($param['path'].$fileName)){
 		
 			include_once $param['path'].$fileName;

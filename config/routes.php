@@ -7,8 +7,8 @@
 
 $ROUTES = array(
 		'home',
-		'organisasi',
-                'news',
+		'register',
+                'recovery',
                 'direktori',
                 'gallery',
                 'kepakaran',

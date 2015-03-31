@@ -1,8 +1,9 @@
-doc/*
 logs/*
 cache/*
-config/database.php
+config/config.php
+config/access.php
 tmp/*
 public_assets/*
 admin/cache/*
 admin/logs/*
+admin/config/

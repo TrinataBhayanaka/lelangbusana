@@ -342,35 +342,41 @@ class Database
 			case '0':
 				
 				$condition = $data['condition'];
-				$limit = intval($data['limit']);
+				$limit = intval(@$data['limit']);
 				if ($limit>0) $limit = " LIMIT {$limit}";
 				else $limit = "";
 				$where = "";
 				if ($condition) $whereCondition = " {$condition} ";
 				else $whereCondition = " 1 ";
 
-				$jointmp = $data['join'];
-				$join = explode(',', $jointmp);
+				if (isset($data['join'])){
 
-				$joinmethod = $data['joinmethod'];
-				if ($joinmethod){
-					$tmpTable = explode(',', $table);
-					$length = count($tmpTable);
+					$jointmp = $data['join'];
+					$join = explode(',', $jointmp);
 
-					$joinIndex = 0;
-					for ($i=1; $i<$length; $i++){
-						$tatement[] = $joinmethod . $tmpTable[$i] . ' ON ' . $join[$joinIndex];
-						$joinIndex++;
+					if (isset($data['joinmethod'])) $joinmethod = $data['joinmethod'];
+					if ($joinmethod){
+						$tmpTable = explode(',', $table);
+						$length = count($tmpTable);
+
+						$joinIndex = 0;
+						for ($i=1; $i<$length; $i++){
+							$tatement[] = $joinmethod . $tmpTable[$i] . ' ON ' . $join[$joinIndex];
+							$joinIndex++;
+						}
+
+						$tmpStatement = implode(' ',$tatement);
+
+						$primaryTable = $tmpTable[0];
+
+						$sql = "SELECT {$field} FROM {$primaryTable} {$tmpStatement} WHERE {$whereCondition} {$limit}";
 					}
 
-					$tmpStatement = implode(' ',$tatement);
-
-					$primaryTable = $tmpTable[0];
-
-					$sql = "SELECT {$field} FROM {$primaryTable} {$tmpStatement} WHERE {$whereCondition} {$limit}";
 				}else{
 					$sql = "SELECT {$field} FROM {$table} WHERE {$whereCondition} {$limit}";
-				}
+				} 
+				
+				
 
 				
 				if ($debug){

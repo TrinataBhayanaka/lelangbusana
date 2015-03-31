@@ -6,59 +6,66 @@
 	</div>
 	<div class="row">
 		 <div class="col-xs-7 col-md-7 col-md-offset-1" style="background-color:#FFF;padding-top:10px">
-					
+				<form method="post" action="{$basedomain}register/signup">	
 					<div class="thumbnail">
 						<div class="form-group">
 				            <label for="recipient-name" class="control-label">Nama Depan</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your First Name">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your First Name" name="name">
 				          </div>
 				        <div class="form-group">
 				            <label for="recipient-name" class="control-label">Nama Belakang</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your Last Name">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your Last Name" name="last_name">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">Email</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your email">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your email" name="email">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">Password</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your passowrd">
+				            <input type="password" class="form-control" id="recipient-name" placeholder="type your passowrd" name="password">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">Confirm Password</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="retype your password">
+				            <input type="password" class="form-control" id="recipient-name" placeholder="retype your password" name="repassword">
+			          </div>
+			          <div class="form-group">
+				            <label for="recipient-name" class="control-label">Alamat</label>
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your address " name="StreetName">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">No Hp</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your hp">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your hp " name="phone_number">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">No Telp</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your telp">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your telp" name="phone">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">No Fax</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your fax">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your fax" name="fax">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">Nama Toko</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your Name Shop">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your Name Shop" name="namaKantor">
 			          </div>
 			          <div class="form-group">
 				            <label for="recipient-name" class="control-label">Alamat Toko</label>
-				            <input type="text" class="form-control" id="recipient-name" placeholder="type your Addres Shop">
+				            <input type="text" class="form-control" id="recipient-name" placeholder="type your Addres Shop" name="alamatKantor">
 			          </div>
 			          <div class="form-group">
-				            <label for="recipient-name" class="control-label">Kota</label>
-				           	<select class="form-control">
-				           		<option>- Pilih Kota -</option>
-				           		<option>DEPOK</option>
-				           		<option>Bogor</option>
+				            <label for="recipient-name" class="control-label">Provinsi</label>
+				           	<select class="form-control selectProvinsi" name="city" required>
+				           		<option value="">- Pilih Provinsi -</option>
+				           		{foreach $city as $val}
+				           		<option value="{$val.kode_wilayah}">{$val.nama_wilayah}</option>
+				           		{/foreach}
 				           	</select>
 			          </div>
+			          <div class="selectCity" style="display:none"></div>
+			          <input type="hidden" value="1" name="token">
 			          <input type="submit" class="btn" Value="Simpan" style="background-color:#F18947;color:#FFF">
 					</div>
-					
+				</form>	
 				  </div> 
 				  
 				   <div class="col-xs-4 col-md-4 ">
@@ -148,3 +155,42 @@
 				  </div> 
 	</div>
 </div>
+
+<script type="text/javascript">
+	
+	{literal}
+
+	$(document).on('change','.selectProvinsi', function(){
+
+		var id = $(this).val();
+		$.post(basedomain+'register/ajax',{idprovinsi:id}, function(data){
+
+			var html = "";
+
+			if (data.status==true){
+				
+
+				html += '<div class="form-group">';
+			    html += '        <label for="recipient-name" class="control-label">Kota</label>';
+			    html += '       	<select class="form-control" name="city">';
+				$.each(data.res, function(i,value){
+					$.each(value.city, function(i,val){
+						html += '       		<option value="'+val.kode_wilayah+'">'+val.nama_wilayah+'</option>';
+					})
+				})
+			    html += '       	</select>';
+		        html += '  </div>';
+
+				
+			}
+			
+			$('.selectCity').css('display','block');
+			$('.selectCity').append(html);
+			
+
+		}, "JSON")	
+	})
+	
+
+	{/literal}
+</script>

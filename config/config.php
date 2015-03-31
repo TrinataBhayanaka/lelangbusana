@@ -18,10 +18,10 @@ $CONFIG['default']['admin'] = false;
 $CONFIG['default']['salt'] = "c0d3k1r-v1.0";
 $CONFIG['default']['hostname'] = "10.10.200.115";
 
-$CONFIG['default']['base_url'] = 'http://localhost/lb/lelangbusana/';
-$CONFIG['default']['root_path'] = $_SERVER['DOCUMENT_ROOT'].'/lb/lelangbusana';
+$CONFIG['default']['base_url'] = 'http://localhost/lelangbusana/';
+$CONFIG['default']['root_path'] = $_SERVER['DOCUMENT_ROOT'].'/lelangbusana';
 
-$CONFIG['default']['upload_path'] = $_SERVER['DOCUMENT_ROOT'].'/lb/lelangbusana/public_assets/';
+$CONFIG['default']['upload_path'] = $_SERVER['DOCUMENT_ROOT'].'/lelangbusana/public_assets/';
 $CONFIG['default']['max_filesize'] = 2097152;
 $CONFIG['default']['upload_path_temporary'] = "/home/";
 $CONFIG['default']['zip_foldername'] = "PUT_YOUR_ZIP_HERE";

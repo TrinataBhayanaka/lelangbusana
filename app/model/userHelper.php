@@ -2,12 +2,56 @@
 class userHelper extends Database {
 	
     function __construct()
-    {
+    {   
+        global $CONFIG;
         $session = new Session;
         $getSessi = $session->get_session();
         $this->user = $getSessi['login'];
+        $this->salt = $CONFIG['default']['salt'];
+        $this->prefix = "lelang";
     }
     
+    function signUp($data, $debug=false)
+    {
+
+        $fields =  array();
+        $fields['name'] = clean($data['name']);
+        $fields['last_name'] = clean($data['last_name']);
+        $fields['email'] = clean($data['email']);
+        $fields['phone_number'] = clean($data['phone_number']);
+        $fields['phone'] = clean($data['phone']);
+        $fields['fax'] = clean($data['fax']);
+        $fields['namaKantor'] = clean($data['namaKantor']);
+        $fields['alamatKantor'] = clean($data['alamatKantor']);
+        $fields['city'] = clean($data['city']);
+        $fields['password'] = md5($this->salt . clean($data['password']) . $this->salt);
+        $fields['register_date'] = date("Y-m-d H:i:s");
+        $fields['nickname'] = clean($data['name']);
+        $fields['username'] = clean($data['email']);
+        $fields['last_login'] = clean($data['StreetName']);
+        $fields['usertype'] = 1;
+        $fields['salt'] = $this->salt;
+
+
+        foreach ($fields as $key => $value) {
+            $tmpField[] = $key;
+            $tmpValue[] = "'". $value ."'";
+        }
+
+        $impField = implode(',', $tmpField);
+        $impValues = implode(',', $tmpValue);
+        
+        $sql = array(
+                'table'=>"social_member",
+                'field'=>"{$impField}",
+                'value'=>"{$impValues}",
+                );
+
+        $res = $this->lazyQuery($sql,$debug,1);
+        if ($res) return true;
+        return false;
+    }
+
     /**
      * @todo edit user profile, update user data from inputed data
      */

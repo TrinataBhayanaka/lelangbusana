@@ -19,11 +19,11 @@ $CONFIG['admin']['default_view'] = 'home';
 $CONFIG['admin']['login'] = 'login';
 
 
-$CONFIG['admin']['app_url'] = 'http://localhost/API/';
-$CONFIG['admin']['base_url'] = 'http://localhost/API/admin/';
-$CONFIG['admin']['root_path'] = $_SERVER['DOCUMENT_ROOT'].'/API/admin';
+$CONFIG['admin']['app_url'] = 'http://localhost/lelangbusana/';
+$CONFIG['admin']['base_url'] = 'http://localhost/lelangbusana/admin/';
+$CONFIG['admin']['root_path'] = $_SERVER['DOCUMENT_ROOT'].'/lelangbusana/admin';
 
-$CONFIG['admin']['upload_path'] = $_SERVER['DOCUMENT_ROOT'].'/API/public_assets/';
+$CONFIG['admin']['upload_path'] = $_SERVER['DOCUMENT_ROOT'].'/lelangbusana/public_assets/';
 $CONFIG['admin']['image'] = array('image/jpeg', 'image/pjpeg','image/png');
 $CONFIG['admin']['max_filesize'] = 2097152;
 
@@ -39,7 +39,7 @@ $app_domain = $CONFIG['admin']['app_url'];
 $dbConfig[0]['host'] = 'localhost';
 $dbConfig[0]['user'] = 'root';
 $dbConfig[0]['pass'] = 'root123root';
-$dbConfig[0]['name'] = 'db_api';
+$dbConfig[0]['name'] = 'db_lelangbusana';
 $dbConfig[0]['server'] = 'mysql';
 
 

@@ -9,7 +9,7 @@ class Controller extends Application{
 		
 		parent::__construct();
 		
-		if (!$GLOBALS['CODEKIR']['LOGS']){
+		if (!isset($GLOBALS['CODEKIR']['LOGS'])){
 
 			if ($this->configkey=='default'){
 				$this->loadModel('helper_model');
@@ -46,12 +46,6 @@ class Controller extends Application{
 
 		//inject Data
 
-		if ($this->configkey=='default'){
-			$this->view->assign('dateToday',date('Y-m-d'));
-			$this->view->assign('agenda',$this->getAgenda());
-			$this->view->assign('kliping_index',$this->getKliping());
-		}
-		
 		
 		if (file_exists($filePath)){
 			
@@ -274,47 +268,7 @@ class Controller extends Application{
 		return $this->GETDB;
 	}
 	
-	/*Function Untuk Meload jumlah Data*/
-	function loadCountData($table,$categoryid=false,$articletype,$condition=false)
-
-	{
-		//	memanggil helper model yang sudah ada pada $GETDB
-		if (!$this->GETDB)$this->GETDB = new helper_model();
-		//	memanggil funtion getCountData yang terdapat pada model helper_model
-
-		$data = $this->GETDB->getCountData($table,$categoryid,$articletype,$condition);
-
-		$this->GETDB = null;
-		if ($data) return $data;
-		return false;
-	}
 	
-	function loadCountData_search($table,$search=false)
-	{
-		//	memanggil helper model yang sudah ada pada $GETDB
-		if (!$this->GETDB)$this->GETDB = new helper_model();
-		//	memanggil funtion getCountData yang terdapat pada model helper_model
-		$data = $this->GETDB->getCountData_search($table,$search);
-		
-		$this->GETDB = null;
-		if ($data) return $data;
-		return false;
-	}
-	
-	function sidebar($table,$content=1, $type=false, $start=0, $limit=5)
-	{
-		/*
-		content = categoryID
-		type 	= articleType
-		start 	= paging start
-		Limit 	= paging limit
-		*/
-		
-		if (!$this->GETDB)$this->GETDB = new helper_model();
-		$helper = $this->GETDB->getSidebar($table,$content, $type, $start, $limit);
-		if ($helper) return $helper;
-		return false;
-	}
 
 	function log($action='surf',$comment)
 	{
@@ -353,36 +307,7 @@ class Controller extends Application{
 	  return $result; 
 	}
 
-	function getAgenda()
-	{
-		global $basedomain;
-		$getHelper = new helper_model;
-		$data = $getHelper->getNews(false,$cat=2, $type=0,0,100);
-        // pr($data);
-
-        foreach ($data as $key => $value) {
-        	$start = $value['start'];
-        	$count = array_count_values($this->modified_array_column($data, 'start'));
-		}
-
-		foreach ($count as $key => $value) {
-        	$result[] = array('date'=>$key,'badge'=>false, 'title'=> 'dasd');
-		}
-
-		//pr($result);
-		logFile(serialize($result));
-		if (!empty($data)) {return json_encode($result);}
-        else if (empty($data)){return json_encode('empty');}
-		else return false;
-	}
-
-	function getKliping(){
-		$getHelper = new contentHelper;
-		$data = $getHelper->getNews($id=false,$cat=1,$type=2,0,3);
-		//pr($data);exit;
-		if (!empty($data)) {return $data;}
-		else return false;
-	}
+	
 	
 }
 
