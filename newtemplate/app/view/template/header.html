@@ -1,9 +1,18 @@
 
  <script>
         {literal}
-          $("span.menu").click(function(){
-            $(".top-nav ul").slideToggle(500, function(){
+
+        $(document).on('click','.menu', function(){
+
+          $(".top-nav ul").slideToggle(500, function(){
             });
+        })
+
+
+          $("span.menu").click(function(){
+            // alert('ada');
+            // $(".top-nav ul").slideToggle(500, function(){
+            // });
           });
 
           function blur()
