@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-03-25 15:01:09
+<?php /* Smarty version Smarty-3.1.15, created on 2015-03-31 15:00:17
          compiled from "view/login.html" */ ?>
 <?php /*%%SmartyHeaderCode:1465313494540f9ed4379307-34079171%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f46244a254c85aab071d12e09c2c2b21c6d37d10' => 
     array (
       0 => 'view/login.html',
-      1 => 1427270465,
+      1 => 1427788787,
       2 => 'file',
     ),
   ),
@@ -24,9 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_540f9ed43a2600_55526660')) {function content_540f9ed43a2600_55526660($_smarty_tpl) {?><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/Login.css" type="text/css" />
+css/demo/nifty-demo.min.css" type="text/css" />
 <script src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/template/bg-images.js"></script>
+js/demo/bg-images.js"></script>
 	<div id="container" class="cls-container">
 		
 		<!-- BACKGROUND IMAGE -->
@@ -38,8 +38,8 @@ js/template/bg-images.js"></script>
 		<!--===================================================-->
 		<div class="cls-header cls-header-lg">
 			<div class="cls-brand">
-				<a class="box-inline" href="index.html">
-					<!-- <img alt="Nifty Admin" src="img/logo.png" class="brand-icon"> -->
+				<a class="box-inline">
+					<!-- <img alt="Admin" src="images/logo.png" class="brand-icon"> -->
 					<span class="brand-title">Lelang Busana <span class="text-thin">Admin</span></span>
 				</a>
 			</div>

@@ -1,44 +1,33 @@
 
 {include file="template/meta.html"}
+
 <body>
-	<div id="wrapper">
-	<!-- HEADER -->
+	{if ($admin)}
+	<div id="container" class="effect mainnav-lg">
 		
-		{if ($admin)}
 
-		{include file= "template/header.html"} 
-		{include file= "template/jsplugin.html"} 
-		{include file= "template/top-bar.html"} 
-		{include file= "template/sidebar.html"} 
-		
-		<div id="content">
-			{$content}
-		</div>
+			
+			{include file= "template/header.html"} 
 
-		
-		{else}
+			<div class="boxed">
+
+				<!--CONTENT CONTAINER-->
+				<!--===================================================-->
+				<div id="content-container">
+					
+					
+					{$content}
+
+				</div>
+			{include file= "template/sidebar.html"}
+
+			{include file= "template/top-bar.html"}
+
+			</div>
+			{include file= "template/footer.html"}
 			{include file= "template/jsplugin.html"}
-			{$content}
-
-		{/if}
-		
-	
 	</div>
-
-</body> 
-</html>
-
-<script type="text/javascript">
-    /*$(document).ready(function() {
-        $('.table').dataTable( {
-            "language": {
-                "url": "{$basedomain}addons/datatable/Indonesian.lang"
-            }
-        } );
-    } );*/
-    
-    $(document).ready(function() {
-        /* Add event listener to the dropdown input */
-        $('select#artikel').change( function() { $('.table').dataTable().fnFilter( $(this).val() ); } );
-    } );
-</script>
+	{else}
+		{$content}
+		{include file= "template/jsplugin.html"}
+	{/if}			
