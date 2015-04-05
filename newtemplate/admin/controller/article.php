@@ -33,9 +33,11 @@ class article extends Controller {
 		if(isset($_GET['id']))
 		{
 			$data = $this->models->get_article_id($_GET['id']);	
-			
+			// pr($data);
 			if ($data){
+				// echo 'ada';
 				$content = unserialize($data['content']);
+				// pr($data['content']);
 				$data['data'] = $content;
 			}
 

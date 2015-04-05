@@ -26,7 +26,7 @@ class home extends Controller {
 		$getOtherProduct = $this->contentHelper->getArticle(false, array('random'=>true));
 		$getProduk = $this->contentHelper->getArticle();
 		
-		// pr($getProduk);
+		// pr($getSlider);
 
 		$this->view->assign('topcontent', $getTopContent[0]);
 		$this->view->assign('slider', $getSlider);
