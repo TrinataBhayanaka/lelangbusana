@@ -110,7 +110,7 @@ class Session
 		}
 		
 		
-		return decode($session['default']);
+		return decode($session[$configkey]);
 	}
     
     public function delete_session($sessName=false)

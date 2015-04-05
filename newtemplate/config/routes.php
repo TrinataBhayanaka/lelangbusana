@@ -9,7 +9,7 @@ $ROUTES = array(
 		'home',
 		'register',
                 'recovery',
-                'direktori',
+                'kontak',
                 'gallery',
                 'kepakaran',
                 'paket',

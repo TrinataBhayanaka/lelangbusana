@@ -40,11 +40,11 @@ class Controller extends Application{
 		if ($this->configkey=='admin')$this->view->assign('admin',$this->isAdminOnline());
 		if ($this->configkey=='dashboard')$this->view->assign('dashboard',$this->isAdminOnline());
 		if ($this->configkey=='services')$this->view->assign('services',$this->isAdminOnline());
-		// $this->inject();
-		// pr($filePath);
-		// exit;
+		
 
-		//inject Data
+		if ($this->configkey=='admin'){
+			$this->view->assign('menu',$this->menuDinamis());
+		}
 
 		
 		if (file_exists($filePath)){
@@ -307,7 +307,40 @@ class Controller extends Application{
 	  return $result; 
 	}
 
-	
+	function menuDinamis()
+	{
+
+		$this->loadModel('helper_model');
+
+		$getHelper = new helper_model;
+		
+		$adminid = $this->isAdminOnline();
+		// pr($adminid);
+
+		if ($adminid){
+			$data['userid'] = $adminid['id'];
+
+
+			$data = $getHelper->getMenu($data);
+			// pr($data);
+			$menuAkses = explode(',', $data['akses_user'][0]['menu_akses']);
+			foreach ($data['menu'] as $key => $value) {
+				
+				if ($value){
+					foreach ($value as $val) {
+						if (in_array($val['menuID'], $menuAkses)){
+							$newData[$key][] = $val;
+						}
+					}
+				}
+				
+			}
+			// pr($newData);
+			return $newData;
+		}
+		return false;
+		
+	}
 	
 }
 

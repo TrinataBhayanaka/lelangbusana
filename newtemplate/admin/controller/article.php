@@ -32,19 +32,19 @@ class article extends Controller {
 
 		if(isset($_GET['id']))
 		{
-			$data = $this->models->get_article_id($_GET['id']);
-            
-            if($data){
-                $data['created_date'] = dateFormat($data['created_date'],'dd-mm-yyyy');
-                $data['posted_date'] = dateFormat($data['posted_date'],'dd-mm-yyyy');
-                $data['expired_date'] = dateFormat($data['expired_date'],'dd-mm-yyyy');
-            }
-            
+			$data = $this->models->get_article_id($_GET['id']);	
+			
+			if ($data){
+				$content = unserialize($data['content']);
+				$data['data'] = $content;
+			}
+
+			// pr($data);
 			$this->view->assign('data',$data);
 		} 
 
 		$this->view->assign('admin',$this->admin['admin']);
-		return $this->loadView('article/inputarticle');
+		return $this->loadView('inputarticle');
 	}
     
 	public function articleinp(){
@@ -55,7 +55,19 @@ class article extends Controller {
 		} else {
 			$_POST['n_status']=0;
 		}
-        
+
+		if(isset($_POST['topcontent'])){
+			if($_POST['topcontent']=='on') $_POST['topcontent']=1;
+		} else {
+			$_POST['topcontent']=0;
+		}
+
+		if(isset($_POST['slider_image'])){
+			if($_POST['slider_image']=='on') $_POST['slider_image']=1;
+		} else {
+			$_POST['slider_image']=0;
+		}
+		
 		if(isset($_POST['articletype'])){
 			if($_POST['articletype']=='on') {
 				if($_POST['articleid_old']!=0){
@@ -68,9 +80,12 @@ class article extends Controller {
 			$_POST['articletype']=0;
 		}
  		
-			if(isset($_POST)){
+
+ 		// pr($_POST);exit;	
+		if(isset($_POST)){
                 // validasi value yang masuk
                $x = form_validation($_POST);
+
 			   try
 			   {
 			   		if(isset($x) && count($x) != 0)
@@ -80,55 +95,23 @@ class article extends Controller {
 						if($x['id'] != ''){
 							$x['action'] = 'update';
 						}
-                        
-                        //pr($x);exit;
+						
 						//upload file
 						if(!empty($_FILES)){
 							if($_FILES['file_image']['name'] != ''){
-							
-								if($x['categoryid'] == '9'){
-									$path_upload = 'gallery/images';
-								}else{
-									$path_upload = 'news';
-								}
-							
-                                if($x['action'] == 'update') deleteFile($x['image'],$path_upload);
-								//if($x['action'] == 'update') deleteFile($x['image']);
-								$image = uploadFile('file_image',$path_upload,'image');
-								
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
 								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
 								$x['image'] = $image['full_name'];
 							}
 						}
+						
 						$data = $this->models->article_inp($x);
 			   		}
 				   	
 			   }catch (Exception $e){}
-            
-            $redirect = $CONFIG['admin']['base_url'].'home';
-            if(isset($x['categoryid'])){
-                if($x['categoryid'] == '1'){
-                    $redirect = $CONFIG['admin']['base_url'].'home';
-                }elseif($x['categoryid']=='2'){
-                    $redirect = $CONFIG['admin']['base_url'].'agenda';
-                }elseif($x['categoryid']=='3'){
-                    if($x['articletype']=='1'){
-                        $redirect = $CONFIG['admin']['base_url'].'about/profile';
-                    }elseif($x['articletype']=='2'){
-                        $redirect = $CONFIG['admin']['base_url'].'about/struktur';
-                    }
-                }elseif($x['categoryid']=='9'){
-					if($x['articletype']=='1'){
-                        $redirect = $CONFIG['admin']['base_url'].'gallery';
-                    }elseif($x['articletype']=='2'){
-                        $redirect = $CONFIG['admin']['base_url'].'gallery';
-                    }
-				}elseif($x['categoryid']=='8'){
-					$redirect = $CONFIG['admin']['base_url'].'direktori/listCategory';
-				}
-            }
-            
-            echo "<script>alert('Data berhasil di simpan');window.location.href='".$redirect."'</script>";
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."home'</script>";
             }
 	}
 	
@@ -136,35 +119,15 @@ class article extends Controller {
 
 		global $CONFIG;
 		// pr($_POST);exit;
-        $post = $_POST;
-        
-        $action = 'delete';
-        if($post['action']) $action = $post['action'];
-        
-        $data = $this->models->article_del($post['ids'], $action);
-        
-        $redirect = $CONFIG['admin']['base_url'].'home';
-        $message  = 'Data dipindahkan ke trash';
-        if(isset($post['categoryid'])){
-            if($post['categoryid'] == '1'){
-                $redirect = $CONFIG['admin']['base_url'].'home';
-            }elseif($post['categoryid']=='2'){
-                $redirect = $CONFIG['admin']['base_url'].'agenda';
-            }elseif($post['categoryid']=='9'){
-				$redirect = $CONFIG['admin']['base_url'].'gallery';
-                $message  = 'Data berhasil dihapus';
-			}elseif($post['categoryid']=='8'){
-				$redirect = $CONFIG['admin']['base_url'].'direktori/listCategory';
-                $message  = 'Data berhasil dihapus';
-			}
-        }
-		echo "<script>alert('".$message."');window.location.href='".$redirect."'</script>";
+		$data = $this->models->article_del($_POST['ids']);
+		
+		echo "<script>alert('Data has been moved to trash');window.location.href='".$CONFIG['admin']['base_url']."home'</script>";
 		
 	}
 	
 	public function trash(){
        
-		$data = $this->models->get_article_trash(1);
+		$data = $this->models->get_article_trash();
 		if ($data){
 			foreach ($data as $key => $val){
 				$data[$key]['created_date'] = dateFormat($val['created_date'],'article');
@@ -181,7 +144,7 @@ class article extends Controller {
 		$this->view->assign('active','active');
 		$this->view->assign('data',$data);
 
-		return $this->loadView('article/viewtrash');
+		return $this->loadView('viewtrash');
 
 	}
 	
@@ -191,17 +154,8 @@ class article extends Controller {
 		global $CONFIG;
 		
 		$data = $this->models->article_restore($_POST['ids']);
-        
-        $redirect = $CONFIG['admin']['base_url'].'home';
-        if(isset($_POST['categoryid'])){
-            if($_POST['categoryid'] == '1'){
-                $redirect = $CONFIG['admin']['base_url'].'article';
-            }elseif($_POST['categoryid']=='2'){
-                $redirect = $CONFIG['admin']['base_url'].'agenda';
-            }
-        }
 		
-		echo "<script>alert('Data berhasil dikembalikan');window.location.href='".$redirect."/trash'</script>";
+		echo "<script>alert('Your data has been restore');window.location.href='".$CONFIG['admin']['base_url']."article/trash'</script>";
 		
 	}
 	
@@ -219,13 +173,13 @@ class article extends Controller {
 
 	public function upload(){
 
-		return $this->loadView('article/uploadFrame');
+		return $this->loadView('uploadFrame');
 
 	}
 
 	public function uploadtwt(){
 
-		return $this->loadView('article/uploadFrameTwt');
+		return $this->loadView('uploadFrameTwt');
 
 	}
 
@@ -272,6 +226,446 @@ class article extends Controller {
 			echo "<script>alert('No file has been selected');window.location.href='".$CONFIG['admin']['base_url']."article/upload'</script>";
 
 		}
+	}
+
+	function profil()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(1);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=1;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function visimisi()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(3);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=3;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function tupoksi()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(4);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=4;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function peraturan()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(5);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=5;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function penelitian()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(6);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=6;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function faq()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(7);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=7;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function saran()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(8);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=8;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function alurprosedur()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(9);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=9;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+	function petunjuk()
+	{
+
+		global $CONFIG;
+		$getProfil = $this->models->getContent(10);
+		$this->view->assign('data',$getProfil[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=10;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/profil'</script>";
+            
+		}
+
+		return $this->loadView('profil');
+	}
+
+
+	function kontak()
+	{
+		global $CONFIG;
+		$getKontak = $this->models->getContent(2);
+		$this->view->assign('data',$getKontak[0]);
+
+		if ($_POST['title']){
+			$_POST['articletype']=2;
+			$_POST['n_status']=1;
+			$x = form_validation($_POST);
+
+			   try
+			   {
+			   		if(isset($x) && count($x) != 0)
+			   		{
+						//update or insert
+						$x['action'] = 'insert';
+						if($x['id'] != ''){
+							$x['action'] = 'update';
+						}
+						
+						//upload file
+						if(!empty($_FILES)){
+							if($_FILES['file_image']['name'] != ''){
+								if($x['action'] == 'update') deleteFile($x['image']);
+								$image = uploadFile('file_image',null,'image');
+								$x['image_url'] = $CONFIG['admin']['app_url'].$image['folder_name'].$image['full_name'];
+								$x['image'] = $image['full_name'];
+							}
+						}
+						
+						$data = $this->models->article_inp($x);
+			   		}
+				   	
+			   }catch (Exception $e){}
+			   
+            echo "<script>alert('Data berhasil di simpan');window.location.href='".$CONFIG['admin']['base_url']."article/kontak'</script>";
+            
+		}
+
+		return $this->loadView('kontak');
 	}
 
 }

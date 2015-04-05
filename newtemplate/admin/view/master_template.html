@@ -1,15 +1,21 @@
 
-{include file="template/meta.html"}
+{include file="meta.html"}
 <body>
+	<!-- RUNNING GLOBAL VAR -->
+	<script>
+		var basedomain = "{$basedomain}";
+	</script>
+	
+	
 	<div id="wrapper">
 	<!-- HEADER -->
 		
 		{if ($admin)}
 
-		{include file= "template/header.html"} 
-		{include file= "template/jsplugin.html"} 
-		{include file= "template/top-bar.html"} 
-		{include file= "template/sidebar.html"} 
+		{include file= "header.html"} 
+		{include file= "jsplugin.html"} 
+		{include file= "top-bar.html"} 
+		{include file= "sidebar.html"} 
 		
 		<div id="content">
 			{$content}
@@ -17,7 +23,6 @@
 
 		
 		{else}
-			{include file= "template/jsplugin.html"}
 			{$content}
 
 		{/if}
@@ -27,18 +32,3 @@
 
 </body> 
 </html>
-
-<script type="text/javascript">
-    /*$(document).ready(function() {
-        $('.table').dataTable( {
-            "language": {
-                "url": "{$basedomain}addons/datatable/Indonesian.lang"
-            }
-        } );
-    } );*/
-    
-    $(document).ready(function() {
-        /* Add event listener to the dropdown input */
-        $('select#artikel').change( function() { $('.table').dataTable().fnFilter( $(this).val() ); } );
-    } );
-</script>
