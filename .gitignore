@@ -7,3 +7,13 @@ public_assets/*
 admin/cache/*
 admin/logs/*
 admin/config/
+newtemplate/admin/cache/*
+newtemplate/admin/logs/*
+newtemplate/admin/config/*
+newtemplate/public_assets/*
+newtemplate/cache/*
+newtemplate/tmp/*
+newtemplate/logs/*
+newtemplate/config/config.php
+newtemplate/config/access.php
+
