@@ -15,6 +15,5 @@ newtemplate/cache/*
 newtemplate/tmp/*
 newtemplate/admin/tmp/*
 newtemplate/logs/*
-newtemplate/config/config.php
 newtemplate/config/access.php
 
