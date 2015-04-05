@@ -1,3 +1,0 @@
-a:5:{s:4:"name";s:15:"gedung-bpom.jpg";s:4:"type";s:10:"image/jpeg";s:8:"tmp_name";s:14:"/tmp/php28GjlW";s:5:"error";i:0;s:4:"size";i:70800;}
-a:5:{s:4:"name";a:1:{i:0;s:15:"bpom-image1.jpg";}s:4:"type";a:1:{i:0;s:10:"image/jpeg";}s:8:"tmp_name";a:1:{i:0;s:14:"/tmp/phpcmJChn";}s:5:"error";a:1:{i:0;i:0;}s:4:"size";a:1:{i:0;i:26400;}}
-a:5:{s:4:"name";s:15:"gedung-bpom.jpg";s:4:"type";s:10:"image/jpeg";s:8:"tmp_name";s:14:"/tmp/phpoVoj75";s:5:"error";i:0;s:4:"size";i:70800;}
