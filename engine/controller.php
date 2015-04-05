@@ -159,6 +159,11 @@ class Controller extends Application{
 				show_error_page($LOCALE[$this->configkey]['error']['missingtemplate']); exit;
 			}
 			
+		} else {
+			// REDIRECT TO PAGE NOT FOUND
+			if ($this->configkey == 'admin'){
+				redirect($basedomain."page404");
+			}	
 		}
 		
 	}
