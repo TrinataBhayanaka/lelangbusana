@@ -5,13 +5,16 @@
 				<div class="in-product">
 				<div class="wmuSlider example1" style="height: 452px;">
 			   <div class="wmuSliderWrapper">
-				   <article style="position: absolute; width: 100%; opacity: 0;"> 
+			   	{if $topcontent}
+				   <article style="position: relative; width: 100%; opacity: 1;"> 
 				   	 <div class="banner-wrap">
 				   	       <div class="banner_left">
-				   	       	  <img src="{$basedomain}assets/img/13.png" class="img-responsive" alt="">
+				   	       	  <img src="{$basedomain}public_assets/{$topcontent.image}" class="img-responsive" alt="">
 				   	       </div>				   		 
 				   	  </div>
 					</article>
+				{/if}
+					{*}
 				    <article style="position: absolute; width: 100%; opacity: 0;"> 
 				   	   <div class="banner-wrap">
 				   	       <div class="banner_left">
@@ -26,6 +29,7 @@
 				   	       </div>				   		 	
 				   	  </div>
 					 </article>
+					 {/*}
 				 </div>
             <a class="wmuSliderPrev">Previous</a>
 			<a class="wmuSliderNext">Next</a>
@@ -39,9 +43,9 @@
 <!---->
 	</div>
 				<div class="banner_right">
-				   	<h3>Lorem ipsum dolor</h3>
+				   	<h3>{$topcontent.title}</h3>
 				   	<p class="nine"></p>
-				   	<p class="sit-in">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim</p>
+				   	<p class="sit-in">{$topcontent.brief}</p>
 				   	{*}
 				   	<a href="#" class="to-cart"><span>Add To Cart</span><img src="{$basedomain}assets/img/plus.png" alt=""></a>{/*}
 				   		 	</div>	
@@ -53,6 +57,7 @@
      		<div class="col-md-9 price-on">
 			<!---->
      			<div class="mens-toolbar">
+     			{*}
                  <div class="sort">
                	   <div class="sort-by">
 		            <label>Sort by</label>
@@ -67,6 +72,7 @@
 		            <a href=""><img src="{$basedomain}assets/img/arrow2.gif" alt="" class="v-middle"></a>
                    </div>
     		     </div>
+
     		    <div class="pages">   
         	      <div class="limiter visible-desktop">
 	               <label>Showing 1-12 of 347 results</label>
@@ -79,20 +85,27 @@
 		       		</ul>
 		  	      <div class="clearfix"></div>
 		  	    </div>
+		  	    {/*}
                 <div class="clearfix"></div>		
 		        </div>
 				<!---->
 		      <div class="product_box1">   
+
+		      	{if $paket}
+		      	{foreach $paket as $val}
 		        <div class="col-md-4 grid-4">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po.jpg" class="img-responsive" alt="">
+          		  <a href="{$basedomain}paket/detail/?id={$val.id}">
+					  <img src="{$basedomain}public_assets/{$val.image}" class="img-responsive" alt="">
 					   </a>
 					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
+					   <h3><a href="{$basedomain}paket/detail/?id={$val.id}">{$val.title}</a></h3>
 						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
+						 <a href="{$basedomain}paket/detail/?id={$val.id}" class="to-cart"><span>Lihat Selengkapnya</span></a>
 					   </div>
 				</div>
+				{/foreach}
+				{/if}
+				{*}
 				<div class="col-md-4 grid-4">
           		  <a href="{$basedomain}paket/detail">
 					  <img src="{$basedomain}assets/img/po5.jpg" class="img-responsive" alt="">
@@ -113,72 +126,12 @@
 						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
 					   </div>
 				</div>
-				 
-				<div class="col-md-4 grid-4">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po6.jpg" class="img-responsive" alt="">
-					   </a>
-					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
-						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
-					   </div>
-				</div>
-				<div class="col-md-4 grid-4">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po2.jpg" class="img-responsive" alt="">
-					   </a>
-					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
-						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
-					   </div>
-				</div>
-				<div class="col-md-4 grid-4 grid-in">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po3.jpg" class="img-responsive" alt="">
-					   </a>
-					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
-						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
-					   </div>
-				</div>					
-				  
-				<div class="col-md-4 grid-4">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po4.jpg" class="img-responsive" alt="">
-					   </a>
-					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
-						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
-					   </div>
-				</div>
-				<div class="col-md-4 grid-4">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po5.jpg" class="img-responsive" alt="">
-					   </a>
-					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
-						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
-					   </div>
-				</div>
-				<div class="col-md-4 grid-4 grid-in">
-          		  <a href="{$basedomain}paket/detail">
-					  <img src="{$basedomain}assets/img/po.jpg" class="img-responsive" alt="">
-					   </a>
-					   <div class="tab_desc1">
-					   <h3><a href="{$basedomain}paket/detail">Feel Tank</a></h3>
-						 <p></p>
-						 <a href="{$basedomain}paket/detail" class="to-cart"><span>Lihat Selengkapnya</span></a>
-					   </div>
-				</div>
+				{/*}
 				  <div class="clearfix"></div>
 			  </div>
 			
 			  <!---->
+			  {*}
 			  <div class="pages">   
         	     <div class="limiter visible-desktop">
 	               <label>Showing 1-12 of 347 results</label>
@@ -191,19 +144,25 @@
 		       	  </ul>
 		  	      <div class="clearfix"></div>
 		  	   </div>
+		  	   {/*}
 			   <!---->
      		</div>
      		<div class="col-md-3 product_right">
-				<h3 class="m_1">On Sale</h3>
+				<h3 class="m_1">Sudah Terjual</h3>
 				 <div class="sale_grid">
-				  <ul class="grid_1">
-					<li class="grid_1-img"><img src="{$basedomain}assets/img/s1.jpg" class="img-responsive" alt=""></li>
-					<li class="grid_1-desc">
-					  <h4><a href="#">Pintuck Tank</a></h4>
-					  <p>$45.55</p>
-					</li>
-					<div class="clearfix"> </div>
-				  </ul>
+				 	{if $sold}
+				 	{foreach $sold as $val}
+				  	<ul class="grid_1">
+						<li class="grid_1-img"><img src="{$basedomain}public_assets/{$val.image}" class="img-responsive" alt=""></li>
+						<li class="grid_1-desc">
+						  <h4><a href="{$basedomain}paket/detail/?id={$val.id}">{$val.title}</a></h4>
+						  
+						</li>
+						<div class="clearfix"> </div>
+				  	</ul>
+				  	{/foreach}
+				  	{/if}
+				  {*}
 				  <ul class="grid_1">
 					<li class="grid_1-img"><img src="{$basedomain}assets/img/s2.jpg" class="img-responsive" alt=""></li>
 					<li class="grid_1-desc">
@@ -220,7 +179,9 @@
 					</li>
 					<div class="clearfix"> </div>
 				  </ul>
+				  {/*}
 				</div>
+				{*}
 			   <h3 class="m_1">Featured Products</h3>
 			      <div class="sale_grid">
 				  <ul class="grid_1">
@@ -248,6 +209,7 @@
 					<div class="clearfix"> </div>
 				  </ul>
 				</div>
+				{/*}
 				  <div class="clearfix"> </div>
      		</div>
 			<div class="clearfix"> </div>

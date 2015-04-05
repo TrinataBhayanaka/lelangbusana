@@ -6,8 +6,27 @@ class userHelper extends Database {
         $session = new Session;
         $getSessi = $session->get_session();
         $this->user = $getSessi['ses_user']['login'];
-        $this->prefix = "api";
     }
+
+
+    function getListUser($data=false, $debug=false)
+    {
+
+        $id = $data['id'];
+
+        $sql = array(
+                    'table' =>'social_member',
+                    'field' => "*",
+                    'condition' => "id = {$id}",
+                    'limit' => 1
+                );
+        // $sqlu = "UPDATE social_member SET last_login = '{$lastLogin}' ,login_count = {$loginCount} WHERE id = {$res['id']} LIMIT 1";
+        $result = $this->lazyQuery($sql);
+        if ($result) return $result;
+        return false;
+
+    }
+
 
     function editProfile($data=false){
         if($data==false) return false;
@@ -63,10 +82,12 @@ class userHelper extends Database {
      * @param $data = 
      * @param $field =  field name
      */
-    function getUserData($field,$data){
-        if($data==false) return false;
-        $sql = "SELECT * FROM `person` WHERE `$field` = '".$data."' ";
-        $res = $this->fetch($sql,0);  
+    function getUserData($id=false,$data=false){
+
+        $filter = "";
+        if(!$id==false) $filter = " AND id = {$id}";
+        $sql = "SELECT * FROM `social_member` WHERE 1";
+        $res = $this->fetch($sql,1);  
         if(empty($res)){return false;}
         return $res; 
     }
@@ -98,44 +119,41 @@ class userHelper extends Database {
         return false;
     }
 
-    function getUserAccount($data=array(), $debug=false, $detail=false)
+    function addUser($data=array())
     {
 
-        $filter = "";
-        $id = $data['id'];
-        if ($id) $filter .= " AND sm.id = {$id}";
+        if($data==false) return false;
 
-        if (!$detail){
-
-            $sql = array(
-                    'table'=>"social_member AS sm",
-                    'field'=>"sm.id, sm.name, sm.email, sm.last_name, sm.pendidikan, sm.kepakaran, sm.n_status" ,
-                    'condition'=>" sm.name !='' {$filter}",
-                    );
-            $res = $this->lazyQuery($sql,$debug);
-        }else{
-
-            $sql = array(
-                    'table'=>"social_member AS sm",
-                    'field'=>"sm.*" ,
-                    'condition'=>" sm.name !='' {$filter}",
-                    );
-            $res = $this->lazyQuery($sql,$debug);
-            if ($res){
-                foreach ($res as $key => $value) {
-
-                    $sql1 = array(
-                            'table'=>"{$this->prefix}_riwayat_pendidikan AS rp",
-                            'field'=>"rp.*" ,
-                            'condition'=>" rp.userID = {$value['id']} AND rp.tahun != ''",
-                            );
-                    $res[$key]['riwayat_pendidikan'] = $this->lazyQuery($sql1,$debug);
-                }
-            }
+        foreach ($data as $key => $value) {
+            
+            $tmpfield[] = "`$key`";
+            $tmpdata[]= "'".$value."'";
+            
         }
-       
 
-        if ($res) return $res;
+        $field = implode(',',$tmpfield);
+        $data = implode(',',$tmpdata);
+        
+        $sql = "INSERT INTO social_member ({$field}) 
+                VALUES ({$data})";
+        // pr($sql);
+        // exit;
+        $res = $this->query($sql);
+        if ($res) return true;
+        return false;
+    }
+
+    function updateUser($data=false,$n_status=0)
+    {
+
+        if (empty($data)) return false;
+
+        
+        
+        $sql = "UPDATE social_member SET n_status = {$n_status} WHERE id IN ({$data}) LIMIT 1";
+        pr($sql);
+        $res = $this->query($sql);
+        if ($res) return true;
         return false;
     }
 }

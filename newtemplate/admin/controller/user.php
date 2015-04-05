@@ -1,5 +1,4 @@
 <?php
-// defined ('TATARUANG') or exit ( 'Forbidden Access' );
 
 class user extends Controller {
 	
@@ -7,29 +6,44 @@ class user extends Controller {
 	
 	public function __construct()
 	{
+		parent::__construct();
+
 		global $app_domain;
 		$this->loadmodule();
 		$this->view = $this->setSmarty();
 		$sessionAdmin = new Session;
 		$this->admin = $sessionAdmin->get_session();
+		// $this->validatePage();
 		$this->view->assign('app_domain',$app_domain);
-		
 	}
+
 	public function loadmodule()
 	{
 		
 		$this->userHelper = $this->loadModel('userHelper');
+		$this->contentHelper = $this->loadModel('contentHelper');
 	}
 	
 	public function index(){
        
 		
-		$data = $this->userHelper->getUserAccount();
-		
-		// pr($data);
-		$this->view->assign('data',$data);
+		$dataUser = $this->userHelper->getUserData();
 
-		return $this->loadView('member/user-member'); 
+		// pr($_POST);
+
+		if ($_POST['status']){
+			
+			$iduser = implode(',', $_POST['ids']);
+			$updateUser = $this->userHelper->updateUser($iduser, $_POST['status']);
+			if ($updateUser){
+				$this->view->assign('status',true);
+			}else{
+				$this->view->assign('status',false);
+			}
+		}
+
+		$this->view->assign('data',$dataUser);
+		return $this->loadView('user');
 
 	}
     
@@ -42,42 +56,37 @@ class user extends Controller {
 
 	}
 	
-	function detail()
-	{
-		global $basedomain;
-
-		$data['id'] = _g('id');
-
-		$getData = $this->userHelper->getUserAccount($data,$debug=false,$getall=true);
-		// pr($getData);
-		$this->view->assign('data',$getData[0]);
-		return $this->loadView('member/user-member-detail');
-
-	}
-
 	function add(){
        
 		global $basedomain;
 		
-		if (_p('token')){
-			
-			// upload image 
-			$uploadImage['status'] = false;
-			if ($_FILES['image']['name']!="")$uploadImage = uploadFile('image','user');
+		// if (_p('token')){
 			
 			
-			$addUser = $this->userHelper->addUser();
-			if ($uploadImage['status']){
-				
-				$updateUser = $this->userHelper->updateUserImage($uploadImage['filename'],$addUser);
+		// 	$uploadImage['status'] = false;
+		// 	if ($_FILES['image']['name']!="")$uploadImage = uploadFile('image','user');
+			
+		if ($_POST['name']){
+
+			$addUser = $this->userHelper->addUser($_POST);
+			if ($addUser){
+				$this->view->assign('status',true);
+			}else{
+				$this->view->assign('status',false);
 			}
-			
-			if ($addUser) redirect($basedomain.'user');
-			exit;
 		}
+		// 	$addUser = $this->userHelper->addUser();
+		// 	if ($uploadImage['status']){
+				
+		// 		$updateUser = $this->userHelper->updateUserImage($uploadImage['filename'],$addUser);
+		// 	}
+			
+		// 	if ($addUser) redirect($basedomain.'user');
+		// 	exit;
+		// }
+		// pr($_POST);
 		
-		
-		return $this->loadView('user/user-input');
+		return $this->loadView('user-detail');
 
 	}
 	
@@ -85,8 +94,18 @@ class user extends Controller {
 	function edit()
 	{
 		global $basedomain, $app_domain;;
-		$userid = intval(_g('id'));
-		$data['listuser'] = $this->userHelper->getListUser($userid);
+		$userid['id'] = intval(_g('id'));
+
+		$dataUser = $this->userHelper->getListUser($userid);
+		if ($dataUser){
+			$getIndustri = $this->contentHelper->getIndustri($dataUser[0]['industri_id']);
+
+			foreach ($dataUser as $key => $value) {
+				$dataUser[$key]['perusahaan'] = $getIndustri[0];
+			}
+		}
+		
+
 		
 		if (_p('token')){
 			
@@ -107,8 +126,10 @@ class user extends Controller {
 			if ($addUser) redirect($basedomain.'user');
 			exit;
 		}
-		
-		return $this->loadView('user/user-edit',$data);
+
+		// pr($dataUser);
+		$this->view->assign('data',$dataUser[0]);
+		return $this->loadView('user-detail');
 	}
 	
 	function delete()
