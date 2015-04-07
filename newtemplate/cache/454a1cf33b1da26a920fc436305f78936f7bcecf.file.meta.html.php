@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-04-01 15:35:34
+<?php /* Smarty version Smarty-3.1.15, created on 2015-04-05 15:04:35
          compiled from "app/view/template/meta.html" */ ?>
 <?php /*%%SmartyHeaderCode:418757163551baaf9647630-17809719%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '454a1cf33b1da26a920fc436305f78936f7bcecf' => 
     array (
       0 => 'app/view/template/meta.html',
-      1 => 1427877331,
+      1 => 1428206265,
       2 => 'file',
     ),
   ),
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <html>
 
     <head>
-        <title>Fashion Store A Fashion Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+        <title>Lelang Busana</title>
         <link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
 assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
