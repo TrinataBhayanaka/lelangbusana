@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-04-01 15:42:21
+<?php /* Smarty version Smarty-3.1.15, created on 2015-04-05 15:04:35
          compiled from "app/view/home.html" */ ?>
 <?php /*%%SmartyHeaderCode:651081253551bab75b9a6d5-47799625%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20ea44c36004ad3e6ed8c39381667b05fbd78d26' => 
     array (
       0 => 'app/view/home.html',
-      1 => 1427877739,
+      1 => 1428206454,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'basedomain' => 0,
+    'topcontent' => 0,
+    'produk' => 0,
+    'val' => 0,
+    'slider' => 0,
+    'k' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -27,19 +32,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="container">
         <div class="women-in">
             <div class="col-md-9 col-d">
-                <div class="banner">
-                    <div class="banner-matter">
-                        <label>Collection</label>
-                        <h2>Summmer</h2>
-                        <p>Helping you look cool</p>
-                        
-                        </div>
-                        <div class="you">
-                            <span>40<label>%</label></span>
-                            <small>off</small>
-                        </div>          
-                        <p  class="para-in">Some text regarding the featured product.</p>
-                </div>
+
+                <a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+paket/detail/?id=<?php echo $_smarty_tpl->tpl_vars['topcontent']->value['id'];?>
+"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+public_assets/<?php echo $_smarty_tpl->tpl_vars['topcontent']->value['image'];?>
+" alt=" " ></a>
+                
                 <!---->
                 <div class="in-line">
                     <div class="para-an">
@@ -47,95 +46,62 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <p>Check our all latest products in this section.</p>
                     </div>
                     <div class="lady-in">
+                        <?php if ($_smarty_tpl->tpl_vars['produk']->value) {?>
+                        <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['produk']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value) {
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+?>
                         <div class="col-md-4 you-para">
-                            <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/pi.jpg" alt=" " ></a>
-                            <div class="you-in">
-                                <span>15<label>%</label></span>
-                            <small>off</small>
-                            </div>
-                            <p>Premium Denim Women's Hidden</p>
-                            <span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
+                            <a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+paket/detail/?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+public_assets/<?php echo $_smarty_tpl->tpl_vars['val']->value['image'];?>
+" alt=" " ></a>
+                            
+                            <p><?php echo $_smarty_tpl->tpl_vars['val']->value['title'];?>
+</p>
+                            
                         </div>
-                        <div class="col-md-4 you-para">
-                            <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/pi4.jpg" alt=" " ></a>
-                            <div class="you-in">
-                                <span>15<label>%</label></span>
-                            <small>off</small>
-                            </div>
-                            <p>Premium Denim Women's Hidden</p>
-                            <span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
-                        </div>
-                        <div class="col-md-4 you-para para-grid">
-                            <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/pi5.jpg" alt=" " ></a>
-                            <div class="you-in">
-                                <span>15<label>%</label></span>
-                            <small>off</small>
-                            </div>
-                            <p>Premium Denim Women's Hidden</p>
-                            <span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
-                        </div>
+                        <?php } ?>
+                        <?php }?>
                         
-                        <div class="col-md-4 you-para">
-                            <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/pi6.jpg" alt=" " ></a>
-                            <div class="you-in">
-                                <span>15<label>%</label></span>
-                            <small>off</small>
-                            </div>
-                            <p>Premium Denim Women's Hidden</p>
-                            <span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
-                        </div>
-                        <div class="col-md-4 you-para">
-                            <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/pi5.jpg" alt=" " ></a>
-                            <div class="you-in">
-                                <span>15<label>%</label></span>
-                            <small>off</small>
-                            </div>
-                            <p>Premium Denim Women's Hidden</p>
-                            <span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
-                        </div>
-                        <div class="col-md-4 you-para para-grid">
-                            <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/pi4.jpg" alt=" " ></a>
-                            <div class="you-in">
-                                <span>15<label>%</label></span>
-                            <small>off</small>
-                            </div>
-                            <p>Premium Denim Women's Hidden</p>
-                            <span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>
-                        </div>
                         <div class="clearfix"> </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-m-left">
-                <div class="in-left">               
-                    <p class="code">Cool COLLECTIONS</p>        
-                    <div class="cool">      
-                    </div>      
-                </div>
-                <div class="discount">
-                    <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/p2.jpg" alt=" " >  </a>        
-                        <p class="no-more">Exclusive <b>discount</b> <span>Womens wear</span></p>                   
-                    <a href="#" class="know-more">know more</a>
-                </div>
-                <div class="discount">
-                    <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/p3.jpg" alt=" " ></a>          
-                        <p class="no-more no-get">Get Exclusive <b>discount on</b> <span>Ladies wear</span></p>                 
-                    <a href="#" class="know-more">know more</a>
-                </div>
-                <div class="discount">
-                    <a href="single.html"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-assets/img/p3.jpg" alt=" " ></a>          
-                        <p class="no-more no-get">Get Exclusive <b>discount on</b> <span>Ladies wear</span></p>                 
-                    <a href="#" class="know-more">know more</a>
-                </div>
+
+                <?php if ($_smarty_tpl->tpl_vars['produk']->value) {?>
+
+                <?php  $_smarty_tpl->tpl_vars['val'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['val']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['slider']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['val']->key => $_smarty_tpl->tpl_vars['val']->value) {
+$_smarty_tpl->tpl_vars['val']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['val']->key;
+?>
+                
+                    <?php if ($_smarty_tpl->tpl_vars['k']->value==0) {?><a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+paket/detail/?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+public_assets/<?php echo $_smarty_tpl->tpl_vars['val']->value['image'];?>
+" alt=" " ></a>
+                    <?php } else { ?>
+                    <div class="discount">
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+paket/detail/?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+"><img class="img-responsive pic-in" src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+public_assets/<?php echo $_smarty_tpl->tpl_vars['val']->value['image'];?>
+" alt=" " >  </a>        
+                        <a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+paket/detail/?id=<?php echo $_smarty_tpl->tpl_vars['val']->value['id'];?>
+" class="know-more">know more</a>
+                    </div>
+                    <?php }?>
+                <?php } ?>
+                <?php }?>
+                
                 
             </div>
             <div class="clearfix"> </div>

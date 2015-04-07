@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-04-01 15:44:32
+<?php /* Smarty version Smarty-3.1.15, created on 2015-04-05 15:04:35
          compiled from "app/view/template/footer.html" */ ?>
 <?php /*%%SmartyHeaderCode:400916135551baaf9679b19-25236715%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f92dca19d71cbdfa547321d0b8af0e6488d64b36' => 
     array (
       0 => 'app/view/template/footer.html',
-      1 => 1427877870,
+      1 => 1428206265,
       2 => 'file',
     ),
   ),
@@ -28,10 +28,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <div class="footer-class">
                 <div class="class-footer">
                     <ul>
-                        <li ><a href="index.html" class="scroll">HOME </a><label>|</label></li>
-                        <li><a href="men.html" class="scroll">Batik</a><label>|</label></li>
-                        <li><a href="women.html" class="scroll">Busana</a><label>|</label></li>
-                        <li><a href="collection.html" class="scroll">Gamis</a><label>|</label></li>
+                        <li ><a href="#" class="scroll">HOME </a><label>|</label></li>
+                        <li><a href="#" class="scroll">Batik</a><label>|</label></li>
+                        <li><a href="#" class="scroll">Busana</a><label>|</label></li>
+                        <li><a href="#" class="scroll">Gamis</a><label>|</label></li>
                     </ul>
                     <p class="footer-grid">&copy; 2014 lelangbusana.com</p>
                 </div>   

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-04-01 16:07:21
+<?php /* Smarty version Smarty-3.1.15, created on 2015-04-05 15:04:35
          compiled from "app/view/template/header.html" */ ?>
 <?php /*%%SmartyHeaderCode:748738685551baaf9663b03-61350267%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '309e1f2f7c56c96d6694de2e6ce3f822ad96efea' => 
     array (
       0 => 'app/view/template/header.html',
-      1 => 1427879235,
+      1 => 1428206265,
       2 => 'file',
     ),
   ),
@@ -26,9 +26,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_551baaf9672fb6_72982581')) {function content_551baaf9672fb6_72982581($_smarty_tpl) {?>
  <script>
         
-          $("span.menu").click(function(){
-            $(".top-nav ul").slideToggle(500, function(){
+
+        $(document).on('click','.menu', function(){
+
+          $(".top-nav ul").slideToggle(500, function(){
             });
+        })
+
+
+          $("span.menu").click(function(){
+            // alert('ada');
+            // $(".top-nav ul").slideToggle(500, function(){
+            // });
           });
 
           function blur()
@@ -44,10 +53,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       <div class="container">
         <div class="header-grid">
           <ul>
-            <li><a href="articles.html" class="scroll">Form Perjanjian</a></li>
-            <li><a href="privacy.html" class="scroll">Privacy</a></li>
-            <li><a href="#" class="scroll">Terms</a></li>           
-            <li><a href="contact.html" class="scroll">Contact  </a></li>
+            <li><a href="#" class="scroll">Form Perjanjian</a></li>
+            
+            <li><a href="#" class="scroll">Ketentuan</a></li>           
+            <li><a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+kontak" class="scroll">Kontak  </a></li>
           </ul>
         </div>
         <div class="header-grid-right">
@@ -79,7 +89,8 @@ assets/img/logo-lelangbusana.png" alt=" " width="100px" height="100px"></a>
         <div class="top-nav">
           <span class="menu"> </span>
           <ul>
-            <li class="active"><a href="index.html">HOME </a></li>
+            <li class="active"><a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+">HOME </a></li>
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
 paket/batik" >Batik</a></li>
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
