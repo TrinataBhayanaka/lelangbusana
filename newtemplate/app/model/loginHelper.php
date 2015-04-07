@@ -53,7 +53,7 @@ class loginHelper extends Database {
                 );
 
         $res = $this->lazyQuery($sql,$debug,1);
-        if ($res) return true;
+        if ($res) return $data['email'];
         return false;
     }
 

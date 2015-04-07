@@ -1,44 +1,30 @@
 <?php
 
-class register extends Controller {
-    
-    var $models = FALSE;
-    var $view;
+class ketentuan extends Controller {
+	
+	var $models = FALSE;
+	var $view;
 
-    
-    function __construct()
-    {
-        global $basedomain;
-        $this->loadmodule();
-        $this->view = $this->setSmarty();
-        $this->view->assign('basedomain',$basedomain);
+	
+	function __construct()
+	{
+		global $basedomain;
+		$this->loadmodule();
+		$this->view = $this->setSmarty();
+		$this->view->assign('basedomain',$basedomain);
     }
-    
-    function loadmodule()
-    {
+	
+	function loadmodule()
+	{
         $this->contentHelper = $this->loadModel('contentHelper');
         $this->loginHelper = $this->loadModel('loginHelper');
         $this->userHelper = $this->loadModel('userHelper');
+	}
+	
+	function index(){
+    	return $this->loadView('aturan/ketentuan');
     }
     
-    function index(){
-
-        $getCity = $this->contentHelper->getCity();
-        // pr($getCity);
-        ini_set('sendmail_from', 'admin@lelangbusana.com');
-
-        $data['email'] = 'ovan89@gmail.com';
-        $data['token'] = sha1('codekir v.0.3');
-
-        $generate = encode($data);
-
-        $sendMail = sendGlobalMail("ovan89@gmail.com", 'admin@lelangbusana.com',"silahkan klik link berikut {$generate}");
-        // pr($send);
-        $this->view->assign('city', $getCity);
-        return $this->loadView('akun/register');
-    }
-    
-
     function local()
     {
         if (isset($_POST['token'])){
@@ -56,54 +42,17 @@ class register extends Controller {
         exit;
     }
 
-    function signup()
-    {
-        global $basedomain;
-        // pr($_POST);
-
-        ini_set('sendmail_from', 'admin@lelangbusana.com');
-
-        if ($_POST['token']){
-
-            $register = $this->loginHelper->signUp($_POST);
-            if ($register){
-
-                $emailuser = $register;
-                $data['email'] = $register;
-                $data['token'] = sha1('codekir v.0.3');
-
-                $generate = encode($data);
-                
-                $sendMail = sendGlobalMail("ovan89@gmail.com", 'admin@lelangbusana.com',"silahkan klik link berikut {$generate}");
-                redirect($basedomain.'akun/status');
-
-            } 
-            else redirect($basedomain.'register');
-
-            exit;
-        }
-    }
-
-    function status()
-    {
-
-        $getToken = _g('token');
-
-        $this->view->assign('msg', 'Silahkan verifikasi email anda untuk mengaktifkan akun');
-        return $this->loadView('akun/register_status');
-    }
-
     function login(){
 
         global $basedomain;
 
         
 
-        return $this->loadView('user/login');
+    	return $this->loadView('user/login');
     }
     
     function register(){
-        return $this->loadView('user/register');
+    	return $this->loadView('user/register');
     }
     
     function register_step1(){
@@ -117,7 +66,7 @@ class register extends Controller {
                 redirect($basedomain.'user/register_step2');
             }
         }
-        return $this->loadView('user/register_step1');
+    	return $this->loadView('user/register_step1');
     }
     
     function register_step2(){
@@ -142,7 +91,7 @@ class register extends Controller {
         }
 
         $this->view->assign('rumpun',$getNomenklatur);
-        return $this->loadView('user/register_step2');
+    	return $this->loadView('user/register_step2');
     }
     
     function register_step3(){
@@ -170,7 +119,7 @@ class register extends Controller {
             }
         }
 
-        return $this->loadView('user/register_step3');
+    	return $this->loadView('user/register_step3');
     }
     
     function register_step4(){
@@ -210,7 +159,7 @@ class register extends Controller {
             exit;
             
         }
-        return $this->loadView('user/register_step4');
+    	return $this->loadView('user/register_step4');
     }
 
     function register_step5(){
@@ -225,31 +174,16 @@ class register extends Controller {
 
     function ajax()
     {
-        $email = @_p('email');
+        $email = _p('email');
 
-        if ($email){
+        $validate = $this->userHelper->validateEmail($email);
+        if ($validate){
 
-            $validate = $this->userHelper->validateEmail($email);
-            if ($validate){
-
-                print json_encode(array('status'=>true));
-            }else{
-                print json_encode(array('status'=>false));
-            }
+            print json_encode(array('status'=>true));
+        }else{
+            print json_encode(array('status'=>false));
         }
-        
 
-        $idprovinsi = @_p('idprovinsi');
-        if ($idprovinsi){
-            $getCity = $this->contentHelper->getCity($idprovinsi);
-            // pr($getCity);
-            if ($getCity){
-
-                print json_encode(array('status'=>true, 'res'=>$getCity));
-            }else{
-                print json_encode(array('status'=>false));
-            }
-        }
         exit;
     }
 

@@ -625,7 +625,7 @@ function sendGlobalMail($to,$from,$msg,$config=true){
 	
 	if (!$config){
 
-		@mail($to,"[ NOTIFICATION ] Flora Kalbar",$msg,"From: $from\n");
+		@mail($to,"[ LELANGBUSANA ] ",$msg,"From: $from\n");
 
 		return array('message'=>'success send mail','result'=>true);
 
@@ -645,13 +645,13 @@ function sendGlobalMail($to,$from,$msg,$config=true){
 		$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
 		$mail->SMTPAuth   = true;                  // enable SMTP authentication
 		$mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
-		$mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+		$mail->Host       = "smtp.lelangbusana.com";      // sets GMAIL as the SMTP server
 		$mail->Port       = 465;                   // set the SMTP port for the GMAIL server
 		$mail->Username   = $CONFIG['email']['EMAIL_FROM_DEFAULT'];  // GMAIL username
 		$mail->Password   = $CONFIG['email']['EMAIL_SMTP_PASSWORD'];            // GMAIL password
 		$mail->AddAddress($to);
 		$mail->SetFrom($CONFIG['email']['EMAIL_FROM_DEFAULT'], 'No Reply Account');
-		$mail->Subject = "[ NOTIFICATION ] Flora Kalbar";
+		$mail->Subject = "[ LELANGBUSANA ] ";
 		$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
 		$mail->MsgHTML($msg);
 		$result = $mail->Send();

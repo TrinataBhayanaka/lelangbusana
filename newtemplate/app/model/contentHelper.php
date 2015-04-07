@@ -20,10 +20,10 @@ class contentHelper extends Database {
         if ($id) $filter .= " AND id = {$id}";
         // pr($data);
         if ($data['topcontent']) $filter .= " AND topcontent = 1";
-        // else $filter .= " AND topcontent = 0";
+        else $filter .= " AND topcontent = 0";
 
         if ($data['slider']) $filter .= " AND slider_image = 1";
-        // else $filter .= " AND slider_image = 0";
+        else $filter .= " AND slider_image = 0";
 
         $orderby = "";
         if ($data['random']) $orderby .= " ORDER BY RAND()";
@@ -46,6 +46,40 @@ class contentHelper extends Database {
 
         $res = $this->lazyQuery($sql,$debug);
         if ($res) return $res;
+        return false;
+    }
+
+    function getCity($cityid=false, $debug=false)
+    {
+
+        $filter = "";
+        if ($cityid) $filter .= " AND kode_wilayah = '{$cityid}'";
+        $sql = array(
+                'table'=>"{$this->prefix}_city",
+                'field'=>"*",
+                'condition' => "parent = 0 {$filter}",
+                );
+
+        $res = $this->lazyQuery($sql,$debug);
+        if ($res){
+
+            foreach ($res as $key => $value) {
+
+                $sql = array(
+                        'table'=>"{$this->prefix}_city",
+                        'field'=>"*",
+                        'condition' => "parent != 0 AND parent = '{$value['kode_wilayah']}'",
+                        );
+
+                $result = $this->lazyQuery($sql,$debug);
+                
+                if ($result) $res[$key]['city'] = $result;
+                
+            }
+            
+            return $res;
+        }
+
         return false;
     }
 }
