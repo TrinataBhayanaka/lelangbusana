@@ -10,11 +10,12 @@ $ROUTES = array(
 		'register',
                 'recovery',
                 'kontak',
-                'gallery',
+                'ketentuan',
                 'kepakaran',
                 'paket',
                 'login',
-                'user'
+                'user',
+                'perjanjian'
         );
 ?>
 

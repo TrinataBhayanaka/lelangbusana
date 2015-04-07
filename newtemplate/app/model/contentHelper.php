@@ -19,14 +19,17 @@ class contentHelper extends Database {
         
         if ($id) $filter .= " AND id = {$id}";
         // pr($data);
-        if ($data['topcontent']) $filter .= " AND topcontent = 1";
-        else $filter .= " AND topcontent = 0";
 
-        if ($data['slider']) $filter .= " AND slider_image = 1";
-        else $filter .= " AND slider_image = 0";
+        $topcontent = "";
+        if ($data['topcontent']) $topcontent .= " AND topcontent = 1";
+        // else $topcontent .= " AND topcontent = 0";
+
+        $slider_image = "";
+        if ($data['slider']) $slider_image .= " AND slider_image = 1";
+        // else $filter .= " AND slider_image = 0";
 
         $orderby = "";
-        if ($data['random']) $orderby .= " ORDER BY RAND()";
+        if ($data['random']) $orderby .= " AND topcontent != 1 AND slider_image != 1 ORDER BY RAND()";
         else $orderby .= " ORDER BY posted_date DESC";
 
         $type = "";
@@ -37,10 +40,11 @@ class contentHelper extends Database {
         if ($data['sold']) $n_status .= " n_status IN ({$data['sold']})";
         else $n_status .= " n_status IN (1)";
 
+        if (empty($data) and !$id) $all = " AND topcontent != 1 AND slider_image != 1";
         $sql = array(
                 'table'=>"{$this->prefix}_news_content ",
                 'field'=>"*",
-                'condition' => "{$n_status} {$type} {$filter} {$orderby}",
+                'condition' => "{$n_status} {$type} {$filter} {$topcontent} {$slider_image} {$all} {$orderby}",
                 'limit' => '100',
                 );
 
