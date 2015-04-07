@@ -42,6 +42,8 @@ class paket extends Controller {
     		$data = $getProduk[0];
     		$data['data'] = $content;
     	}
+
+
 		// pr($data);
 
 		$this->view->assign('paket', $data);

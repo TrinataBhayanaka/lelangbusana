@@ -18,10 +18,12 @@ class contentHelper extends Database {
         $filter = "";
         
         if ($id) $filter .= " AND id = {$id}";
+        // pr($data);
         if ($data['topcontent']) $filter .= " AND topcontent = 1";
-        else $filter .= " AND topcontent = 0";
+        // else $filter .= " AND topcontent = 0";
+
         if ($data['slider']) $filter .= " AND slider_image = 1";
-        else $filter .= " AND slider_image = 0";
+        // else $filter .= " AND slider_image = 0";
 
         $orderby = "";
         if ($data['random']) $orderby .= " ORDER BY RAND()";
