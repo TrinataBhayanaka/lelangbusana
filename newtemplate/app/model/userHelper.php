@@ -115,5 +115,19 @@ class userHelper extends Database {
         return false;
 
     } 
+
+    public function insert_contact(){
+
+        // pr($_POST);
+        $create_date=date("Y-m-d H:i:s");
+        $query = "INSERT INTO  
+                        {$this->prefix}_kontak (nama, email, komentar, create_date, n_status)
+                    VALUES
+                        ('".$_POST['userName']."','".$_POST['userEmail']."','".$_POST['userMsg']."','".$create_date."','1')";
+        // pr($query);
+        $result = $this->query($query);
+        if ($result) return true;
+        return false;
+    }
 }
 ?>
