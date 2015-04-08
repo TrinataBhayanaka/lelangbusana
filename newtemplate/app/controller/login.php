@@ -36,7 +36,8 @@ class login extends Controller {
     function local()
     {
         // pr($_POST);
-        if (isset($_POST['token'])){
+        global $basedomain;
+        if (isset($_POST['gologin'])){
 
             $validateData = $this->loginHelper->local($_POST);
             
@@ -44,11 +45,12 @@ class login extends Controller {
                 // set session
                 $setSession = $this->loadSession->set_session($validateData);
                 
-                print json_encode(array('status'=>true));
+                // print json_encode(array('status'=>true));
             }else{
-                print json_encode(array('status'=>false));
+                // print json_encode(array('status'=>false));
             }
 
+            redirect($basedomain);
         }
 
         exit;

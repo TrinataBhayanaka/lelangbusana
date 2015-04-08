@@ -5,10 +5,10 @@
 	<h3>Form Registrasi</h3>
 	<div class=" col-md-9 contact-left">
 		  
-	    <form method="post" action="{$basedomain}register/signup">
+	    <form method="post" action="{$basedomain}register/signup" onsubmit="return validasiForm()">
 	    	<div>
 		    	<span>Nama Depan</span>
-		    	<input type="text" class="" id="recipient-name" placeholder="" name="name">
+		    	<input type="text" class="" id="recipient-name" placeholder="" name="name" required>
 		    </div>
 		    <div>
 		    	<span>Nama Belakang</span>
@@ -16,15 +16,15 @@
 		    </div>
 		    <div>
 		    	<span>Email</span>
-		    	<input type="text" class="" id="recipient-name" placeholder="" name="email">
+		    	<input type="text" class="" id="recipient-name" placeholder="" name="email" required>
 		    </div>
 		    <div>
 		    	<span>Password</span>
-		    	<input type="password" class="form-control" id="recipient-name" placeholder="" name="password">
+		    	<input type="password" class="form-control password" id="recipient-name" placeholder="" name="password" required>
 		    </div>
 		    <div>
 		    	<span>Re Password</span>
-		    	<input type="password" class="form-control" id="recipient-name" placeholder="" name="repassword">
+		    	<input type="password" class="form-control repassword" id="recipient-name" placeholder="" name="repassword" required>
 		    </div>
 		    <div>
 		    	<span>Alamat</span>
@@ -32,7 +32,7 @@
 		    </div>
 		    <div>
 	            <span>No Hp</span>
-	            <input type="text" class="" id="recipient-name" placeholder="" name="phone_number">
+	            <input type="text" class="" id="recipient-name" placeholder="" name="phone_number" required>
 	       	</div>
 	        <div>
 	            <span>No Telp</span>
@@ -117,6 +117,16 @@
 		}, "JSON")	
 	})
 	
+	function validasiForm()
+	{
+		var password = $('.password').val();
+		var repassword = $('.repassword').val();
+		
+		if (password !== repassword){
+			alert('Password tidak sesuai');
+			return false;	
+		} 
 
+	}
 	{/literal}
 </script>

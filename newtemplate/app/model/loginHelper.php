@@ -36,6 +36,7 @@ class loginHelper extends Database {
         $fields['last_login'] = clean($data['StreetName']);
         $fields['usertype'] = 1;
         $fields['salt'] = $this->salt;
+        $fields['email_token'] = sha1($this->salt.$data['email']);
 
 
         foreach ($fields as $key => $value) {
@@ -53,7 +54,7 @@ class loginHelper extends Database {
                 );
 
         $res = $this->lazyQuery($sql,$debug,1);
-        if ($res) return $data['email'];
+        if ($res) return array('email'=>$data['email'],'validby'=>$fields['email_token']);
         return false;
     }
 
@@ -62,13 +63,13 @@ class loginHelper extends Database {
 		if($data== false) return false;
 		
 	   
-        $username = clean($data['username']);
+        $username = clean($data['email']);
 
 		// $sql = "SELECT * FROM social_member where username = '{$data['username']}' AND password = '{$password}' LIMIT 1";
 		$sql = array(
                 'table'=>"social_member",
                 'field'=>"*",
-                'condition'=>"username = '{$username}'",
+                'condition'=>"username = '{$username}' AND n_status = 1",
                 'limit'=>1,
                 );
 
@@ -299,9 +300,9 @@ class loginHelper extends Database {
     function getEmailToken($username=false)
     {
         if($username==false) return false;
-        $sql = "SELECT email_token FROM `florakb_person` WHERE `username` = '".$username."' LIMIT 1";
+        $sql = "SELECT email_token FROM `social_member` WHERE `email` = '".$username."' LIMIT 1";
         // logFile($sql);
-        $res = $this->fetch($sql,0,1);
+        $res = $this->fetch($sql);
         if ($res) return $res;
         return false;
     }
@@ -310,8 +311,8 @@ class loginHelper extends Database {
     {
         if (!$username) return false;
         $date = date('Y-m-d H:i:s');
-        $sql = "UPDATE florakb_person SET n_status = 1, verified_date = '{$date}' WHERE username = '{$username}' AND n_status = 0 LIMIT 1";
-        $res = $this->query($sql,1);
+        $sql = "UPDATE social_member SET n_status = 1, verified_date = '{$date}' WHERE email = '{$username}' AND n_status = 0 LIMIT 1";
+        $res = $this->query($sql);
         if($res) return true;
         return false;
     }

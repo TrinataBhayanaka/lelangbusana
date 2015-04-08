@@ -21,6 +21,7 @@ class home extends Controller {
 	
 	function index(){
 		
+		
 		$getTopContent = $this->contentHelper->getArticle(false, array('topcontent'=>true));
 		$getSlider = $this->contentHelper->getArticle(false, array('slider'=>true));
 		$getOtherProduct = $this->contentHelper->getArticle(false, array('random'=>true));

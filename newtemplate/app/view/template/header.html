@@ -35,14 +35,21 @@
           </ul>
         </div>
         <div class="header-grid-right">
-          <a href="#" class="sign-in">Login</a>
-          <form>
-            <input type="text" value="Email" onfocus="this.value='';" onblur="blur()">
-            <input type="text" value="Password" onfocus="this.value='';" onblur="blur()">
-            <input type="submit" value="Go" >
+
+          {if $user}
+          <label>Selamat Datang {$user[0].name} |</label>
+          <a href="{$basedomain}logout.php" class="sign-up">Logout</a>
+          {else}
+          <a href="javascript:void(0)" class="sign-in">Login</a>
+          <form action="{$basedomain}login/local" method="post">
+            <input type="text" name="email" value="Email" onfocus="this.value='';" onblur="blur()">
+            <input type="text" name="password" value="Password" onfocus="this.value='';" onblur="blur()">
+            <input type="submit" value="Go" name="gologin">
           </form>
           <label>|</label>
           <a href="{$basedomain}register" class="sign-up">Register</a>
+          {/if}
+          
         </div>
         <div class="clearfix"> </div>
       </div>

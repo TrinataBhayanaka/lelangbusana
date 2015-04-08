@@ -644,18 +644,22 @@ function sendGlobalMail($to,$from,$msg,$config=true){
 		$mail->Host       = $CONFIG['email']['EMAIL_SMTP_HOST']; // SMTP server
 		$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
 		$mail->SMTPAuth   = true;                  // enable SMTP authentication
-		$mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
+		$mail->SMTPSecure = "tsl";                 // sets the prefix to the servier
 		$mail->Host       = "smtp.lelangbusana.com";      // sets GMAIL as the SMTP server
-		$mail->Port       = 465;                   // set the SMTP port for the GMAIL server
+		$mail->Port       = 587;                   // set the SMTP port for the GMAIL server
 		$mail->Username   = $CONFIG['email']['EMAIL_FROM_DEFAULT'];  // GMAIL username
 		$mail->Password   = $CONFIG['email']['EMAIL_SMTP_PASSWORD'];            // GMAIL password
+		logFile('1');
 		$mail->AddAddress($to);
+		logFile('2');
 		$mail->SetFrom($CONFIG['email']['EMAIL_FROM_DEFAULT'], 'No Reply Account');
+		logFile('3');
 		$mail->Subject = "[ LELANGBUSANA ] ";
 		$mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
 		$mail->MsgHTML($msg);
+		logFile('4');
 		$result = $mail->Send();
-		
+		// pr($result);
 		logFile('status send = '.$result);
 
 		if($result) return array('message'=>'success send mail','result'=>true,'res'=>$result);
