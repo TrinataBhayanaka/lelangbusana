@@ -523,6 +523,7 @@ span.twitter-ic{
 	padding: 0px;
 	list-style-type: none;
 	text-align: center;
+
 }
 .nbs-flexisel-inner {
 	overflow: hidden;
@@ -1227,7 +1228,7 @@ padding: 2em;
 	padding:0 0 1em;
 }
 .facts ul li{
-	list-style:none;
+	/*list-style:none;*/
 	color:#767676;
 	font-size:1em;
 	padding:0.3em 0;
