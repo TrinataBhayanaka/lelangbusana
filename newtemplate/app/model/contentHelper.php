@@ -22,17 +22,18 @@ class contentHelper extends Database {
 
         $topcontent = "";
         if ($data['topcontent']) $topcontent .= " AND topcontent = 1";
-        // else $topcontent .= " AND topcontent = 0";
+        else $topcontent .= " AND topcontent = 0";
 
         $slider_image = "";
         if ($data['slider']) $slider_image .= " AND slider_image = 1";
-        // else $filter .= " AND slider_image = 0";
+        else $slider_image .= " AND slider_image = 0";
 
         $orderby = "";
         if ($data['random']) $orderby .= " AND topcontent != 1 AND slider_image != 1 ORDER BY RAND()";
         else $orderby .= " ORDER BY posted_date DESC";
 
         $type = "";
+        
         if ($data['type']) $type .= " AND articleType IN ({$data['type']})";
         else $type .= " AND articleType IN (1,2,3)";
 
