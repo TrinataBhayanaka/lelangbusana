@@ -92,10 +92,11 @@
 		      <div class="product_box1">   
 
 		      	{if $paket}
+		      	{$i = 0}
 		      	{foreach $paket as $val}
-		        <div class="col-md-4 grid-4">
+		        <div class="col-md-4 grid-4 {if $val.grid==1}grid-in{/if}">
           		  <a href="{$basedomain}paket/detail/?id={$val.id}">
-					  <img src="{$basedomain}public_assets/{$val.image}" class="img-responsive" alt="">
+					  <img src="{$basedomain}public_assets/{$val.image}" class="img-responsive" alt="" >
 					   </a>
 					   <div class="tab_desc1">
 					   <h3><a href="{$basedomain}paket/detail/?id={$val.id}">{$val.title}</a></h3>
@@ -103,6 +104,7 @@
 						 <a href="{$basedomain}paket/detail/?id={$val.id}" class="to-cart"><span>Lihat Selengkapnya</span></a>
 					   </div>
 				</div>
+				
 				{/foreach}
 				{/if}
 				{*}

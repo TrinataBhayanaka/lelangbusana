@@ -89,13 +89,25 @@ class paket extends Controller {
 	    		$no++;
     		}
 
+    		$grid = 0;
+    		foreach ($getSlider as $key => $value) {
+	    		
+    			if ($grid == 2){
+	    			$getSlider[$key]['grid'] = 1;
+	    			$i=0;
+	    		}else{
+	    			$getSlider[$key]['grid'] = 0;
+	    			$grid++;
+	    		}
 
+	    	}
     	}
 
     	$getProductSold = $this->contentHelper->getArticle(false, array('sold'=>2, 'type'=>1));
 
+
     	// pr($getProductSold);
-    	// pr($paket);
+    	// pr($getSlider);
     	$this->view->assign('topcontent', $topcontent);
     	$this->view->assign('sold', $getProductSold);
     	$this->view->assign('paket', $getSlider);
