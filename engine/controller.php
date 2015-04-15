@@ -72,7 +72,7 @@ class Controller extends Application{
 				if ($DATA[$this->configkey]['page']=='login'){
 
 					/* remove session if user exist in same browser */
-					$ignoreFunc = array('validate','accountValid','doLogin','doSignup');
+					$ignoreFunc = array('validate','accountValid','doLogin','local');
 					if (in_array($DATA[$this->configkey]['function'], $ignoreFunc)){
 						// do nothing
 					}else{
@@ -87,7 +87,7 @@ class Controller extends Application{
 
 				}
 			}
-			// pr($DATA);
+			
 			if ($this->configkey == 'admin'){
 				if ($DATA[$this->configkey]['page']=='login'){
 					if ($this->isAdminOnline()){
@@ -153,6 +153,11 @@ class Controller extends Application{
 				show_error_page($LOCALE[$this->configkey]['error']['missingtemplate']); exit;
 			}
 			
+		} else {
+			// REDIRECT TO PAGE NOT FOUND
+			if ($this->configkey == 'admin'){
+				redirect($basedomain."page404");
+			}	
 		}
 		
 	}

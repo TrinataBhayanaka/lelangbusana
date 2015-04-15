@@ -12,7 +12,7 @@ $ROUTES = array(
                 'direktori',
                 'gallery',
                 'kepakaran',
-                'anggota',
+                'paket',
                 'login',
                 'user'
         );

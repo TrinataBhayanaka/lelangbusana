@@ -1,0 +1,66 @@
+
+			<div class="container">
+				<div class="contact">
+				<div class="contact-in">
+				<h3>Verifikasi Email</h3>
+				<div class=" col-md-9 contact-left">
+				  
+					<label for="recipient-name" class="control-label">{$msg}</label>    
+				  </div>
+
+				<div class=" col-md-3 contact-right">
+				     	<h5>Informasi Kantor</h5>
+						<p>Thamrin City Lantai 3 Blok B 12a No. 5-02</p>
+						<br>
+						<p>Tanah Abang, Jakarta Pusat</p>
+				 	 	<p>Email: <a href="mailto:customer_services@lelangbusana.com">admin@lelangbusana.com</a></p>
+				   		
+				    </div>
+					  <div class="clearfix"></div>
+				 </div>
+				
+			     
+      		</div>
+		    </div>
+
+	
+
+
+<script type="text/javascript">
+	
+	{literal}
+
+	$(document).on('change','.selectProvinsi', function(){
+
+		var id = $(this).val();
+		$.post(basedomain+'register/ajax',{idprovinsi:id}, function(data){
+
+			var html = "";
+
+			if (data.status==true){
+				
+
+				html += '<div class="form-group">';
+			    html += '        <label for="recipient-name" class="control-label">Kota</label>';
+			    html += '       	<select class="form-control" name="city">';
+				$.each(data.res, function(i,value){
+					$.each(value.city, function(i,val){
+						html += '       		<option value="'+val.kode_wilayah+'">'+val.nama_wilayah+'</option>';
+					})
+				})
+			    html += '       	</select>';
+		        html += '  </div>';
+
+				
+			}
+			
+			$('.selectCity').css('display','block');
+			$('.selectCity').append(html);
+			
+
+		}, "JSON")	
+	})
+	
+
+	{/literal}
+</script>

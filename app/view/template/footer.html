@@ -14,7 +14,9 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
     <script type="text/javascript" src="{$basedomain}assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{$basedomain}assets/js/jquery.form.js"></script>
 
     
     <!-- Helper -->
@@ -25,6 +27,43 @@
         var basedomain = "{$basedomain}";
         
     </script>
+
+
+    <script> 
+    {literal}
+            
+            var updateoptions = {
+              dataType:  'json',  
+              beforeSubmit: function(data) { 
+                   
+                $("#myFormSubmit").html("pleasewait");    
+                   
+              },
+              success : function(data) {   
+                
+                log(data);
+                if (data.status==true)location.reload();
+                // $(".messagesendingcontent").html('');
+                // if(data.result){ 
+                       
+                //   var htmlThanks ="";
+                //   htmlThanks = "<p class='postSucces'>"+locale.postcommentorreply+"</p>";
+                //   $(".wakeboarding-thanks").trigger("click");
+                //   $(".content").html(htmlThanks);
+                //   $("#fancybox-close").addClass("fancybox-close-postsucces");
+                //   $(document).on('click', '#fancybox-close, #fancybox-overlay', function(){
+                //     location.reload();
+                //   })
+                              
+                // }
+
+              }
+            };  
+
+            $("#myFormSubmit").ajaxForm(updateoptions);
+    {/literal}
+    </script> 
+
 </body>
 </html>
 

@@ -16,17 +16,82 @@ class loginHelper extends Database {
        
     }
 
-	function local($data=false)
+    function signUp($data, $debug=false)
+    {
+
+        $fields =  array();
+        $fields['name'] = clean($data['name']);
+        $fields['last_name'] = clean($data['last_name']);
+        $fields['email'] = clean($data['email']);
+        $fields['phone_number'] = clean($data['phone_number']);
+        $fields['phone'] = clean($data['phone']);
+        $fields['fax'] = clean($data['fax']);
+        $fields['namaKantor'] = clean($data['namaKantor']);
+        $fields['alamatKantor'] = clean($data['alamatKantor']);
+        $fields['city'] = clean($data['city']);
+        $fields['password'] = sha1($this->salt . clean($data['password']) . $this->salt);
+        $fields['register_date'] = date("Y-m-d H:i:s");
+        $fields['nickname'] = clean($data['name']);
+        $fields['username'] = clean($data['email']);
+        $fields['last_login'] = clean($data['StreetName']);
+        $fields['usertype'] = 1;
+        $fields['salt'] = $this->salt;
+
+
+        foreach ($fields as $key => $value) {
+            $tmpField[] = $key;
+            $tmpValue[] = "'". $value ."'";
+        }
+
+        $impField = implode(',', $tmpField);
+        $impValues = implode(',', $tmpValue);
+        
+        $sql = array(
+                'table'=>"social_member",
+                'field'=>"{$impField}",
+                'value'=>"{$impValues}",
+                );
+
+        $res = $this->lazyQuery($sql,$debug,1);
+        if ($res) return true;
+        return false;
+    }
+
+	function local($data=false, $debug=false)
 	{
 		if($data== false) return false;
 		
-		$salt = '12345678PnD';
-		$password = sha1($data['password'].$salt);
-		$sql = "SELECT * FROM social_member where username = '{$data['username']}' AND password = '{$password}' LIMIT 1";
-		$res = $this->fetch($sql, 0);
-		// pr($sql);
-		if ($res) return $res;
-		return false;
+	   
+        $username = clean($data['username']);
+
+		// $sql = "SELECT * FROM social_member where username = '{$data['username']}' AND password = '{$password}' LIMIT 1";
+		$sql = array(
+                'table'=>"social_member",
+                'field'=>"*",
+                'condition'=>"username = '{$username}'",
+                'limit'=>1,
+                );
+
+        $res = $this->lazyQuery($sql,$debug);
+        // pr($res);
+        if ($res){
+
+            $password = sha1($res[0]['salt'] . $data['password'] . $res[0]['salt']);
+            if ($res[0]['password'] == $password){
+
+                $login_count = intval($res[0]['login_count']) + 1;
+                $sql = array(
+                        'table'=>"social_member",
+                        'field'=>"login_count = {$login_count}",
+                        'condition'=>"id = '{$res[0]['id']}'",
+                        );
+
+                $result = $this->lazyQuery($sql,$debug,2);
+                return $res;
+            }
+        }
+
+        return false;
 	}
 	
     /**

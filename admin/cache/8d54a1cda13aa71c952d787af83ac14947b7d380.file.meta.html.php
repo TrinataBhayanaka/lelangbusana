@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2015-03-25 14:12:50
+<?php /* Smarty version Smarty-3.1.15, created on 2015-03-31 14:05:40
          compiled from "./view/template/meta.html" */ ?>
 <?php /*%%SmartyHeaderCode:4023078225436044d95f329-62417481%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8d54a1cda13aa71c952d787af83ac14947b7d380' => 
     array (
       0 => './view/template/meta.html',
-      1 => 1427267179,
+      1 => 1427785539,
       2 => 'file',
     ),
   ),
@@ -24,92 +24,66 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5436044d998679_10749366')) {function content_5436044d998679_10749366($_smarty_tpl) {?><!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+
 <head>
-    <title>Admin</title>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="">
-	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin | lelang Busana</title>
+
+
+	<!--STYLESHEET-->
+	<!--=================================================-->
+
+	<!--Open Sans Font [ OPTIONAL ] -->
+ 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+
+	<!--Bootstrap Stylesheet [ REQUIRED ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+css/bootstrap.min.css" rel="stylesheet">
+
+
+	<!--Nifty Stylesheet [ REQUIRED ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+css/nifty.min.css" rel="stylesheet">
+
 	
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+	<!--Font Awesome [ OPTIONAL ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/bootstrap.min.css" type="text/css" />	
 
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/nifty.min.css" type="text/css" />	
+	<!--Switchery [ OPTIONAL ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+plugins/switchery/switchery.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/font-awesome.min.css" type="text/css" />	
 
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/pace/pace.min.css" type="text/css" />
+	<!--Bootstrap Select [ OPTIONAL ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 
-	<!-- <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/googleapis.css" type="text/css">
 
+	<!--Demo [ DEMONSTRATION ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+css/demo/nifty-demo.min.css" rel="stylesheet">
+
+
+
+
+	<!--SCRIPT-->
+	<!--=================================================-->
+
+	<!--Page Load Progress Bar [ OPTIONAL ]-->
+	<link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+plugins/pace/pace.min.css" rel="stylesheet">
+	<script src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+plugins/pace/pace.min.js"></script>
+
+	<!--jQuery [ REQUIRED ]-->
+	<script src="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
+js/jquery-2.1.1.min.js"></script>
 		
-	
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css" type="text/css" />
 
-    <link href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/prettyPhoto.css" rel="stylesheet">
-		
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/icheck/skins/minimal/blue.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/datepicker/datepicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/select2/select2.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/simplecolorpicker/jquery.simplecolorpicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/datatables/DT_bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/timepicker/bootstrap-timepicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/fileupload/bootstrap-fileupload.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/fullcalendar/fullcalendar.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/WYSIWYG/jquery-te-1.4.0.css" type="text/css" />
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-js/plugins/magnific/magnific-popup.css" type="text/css" />
-
-	
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/App.css" type="text/css" />
-
-	<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-css/custom.css" type="text/css" /> -->
-    
-    <!-- datetimepicker -->
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-plugin/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" type="text/css" />
-    <!-- datetimepicker -->
-
-	<style>
-		.btn,
-		.btn-group {
-			margin: 0 10px 15px 0;
-		}
-
-		.btn-block {
-			margin-right: 0;
-			margin-left: 0;
-		}
-
-		.btn-group .btn {
-			margin: 0;
-		}
-	</style>
-	<script>
-		var basedomain = "<?php echo $_smarty_tpl->tpl_vars['basedomain']->value;?>
-";
-	</script>
-</head><?php }} ?>
+</head>
+<?php }} ?>

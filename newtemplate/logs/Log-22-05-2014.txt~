@@ -1,0 +1,138 @@
+a:1:{s:9:"excelfile";a:5:{s:4:"name";s:31:"spreadsheet_template_expand.xls";s:4:"type";s:24:"application/vnd.ms-excel";s:8:"tmp_name";s:14:"/tmp/phpfGClrw";s:5:"error";i:0;s:4:"size";i:25088;}}
+load excel begin
+load excel success
+parse data excel success, data= a:5:{i:0;a:3:{s:5:"sheet";i:0;s:10:"field_name";a:20:{i:0;s:10:"unique_key";i:1;s:4:"date";i:2;s:6:"obs_by";i:3;s:4:"locn";i:4;s:8:"microhab";i:5;s:4:"plot";i:6;s:3:"tag";i:7;s:5:"habit";i:8;s:3:"dbh";i:9;s:6:"height";i:10;s:3:"bud";i:11;s:6:"flower";i:12;s:5:"fruit";i:13;s:11:"indiv_notes";i:14;s:3:"det";i:15;s:6:"confid";i:16;s:6:"det_by";i:17;s:8:"det_date";i:18;s:9:"det_using";i:19;s:9:"det_notes";}s:4:"data";a:23:{i:1;a:20:{i:0;d:1;i:1;s:10:"2014-05-07";i:2;s:3:"joe";i:3;s:5:"plot1";i:4;s:0:"";i:5;s:5:"plot1";i:6;i:1;i:7;s:4:"tree";i:8;s:0:"";i:9;s:0:"";i:10;s:2:"no";i:11;s:2:"no";i:12;s:3:"yes";i:13;s:0:"";i:14;s:21:"Dillenia_sufructicosa";i:15;s:4:"high";i:16;s:3:"joe";i:17;s:10:"2014-02-01";i:18;s:6:"Memory";i:19;s:0:"";}i:2;a:20:{i:0;d:2;i:1;s:10:"2014-05-08";i:2;s:3:"adi";i:3;s:5:"plot3";i:4;s:0:"";i:5;s:5:"plot2";i:6;i:2;i:7;s:4:"tree";i:8;s:0:"";i:9;s:0:"";i:10;s:2:"no";i:11;s:2:"no";i:12;s:2:"no";i:13;s:7:"leaning";i:14;s:8:"shorpub1";i:15;s:6:"medium";i:16;s:3:"adi";i:17;s:10:"2014-02-01";i:18;s:27:"Puff, Rubiaceae of Thailand";i:19;s:0:"";}i:3;a:20:{i:0;i:3;i:1;s:10:"2014-05-09";i:2;s:3:"adi";i:3;s:7:"myhouse";i:4;s:0:"";i:5;s:3:"oke";i:6;i:3;i:7;s:4:"tree";i:8;s:0:"";i:9;s:0:"";i:10;s:2:"no";i:11;s:3:"yes";i:12;s:2:"no";i:13;s:0:"";i:14;s:9:"Rubiaceae";i:15;s:4:"high";i:16;s:3:"cop";i:17;s:10:"2014-05-23";i:18;s:6:"Memory";i:19;s:0:"";}i:4;a:20:{i:0;i:4;i:1;s:10:"2014-05-10";i:2;s:3:"cop";i:3;s:5:"plot3";i:4;s:0:"";i:5;s:4:"oke2";i:6;i:4;i:7;s:5:"shrub";i:8;s:0:"";i:9;s:0:"";i:10;s:2:"no";i:11;s:3:"yes";i:12;s:2:"no";i:13;s:0:"";i:14;s:4:"fam2";i:15;s:3:"low";i:16;s:4:"dita";i:17;s:10:"2014-02-03";i:18;s:27:"Puff, Rubiaceae of Thailand";i:19;s:0:"";}i:5;a:20:{i:0;i:5;i:1;s:10:"2014-05-11";i:2;s:4:"dita";i:3;s:5:"plot4";i:4;s:0:"";i:5;s:4:"oke3";i:6;i:5;i:7;s:5:"liana";i:8;s:0:"";i:9;s:0:"";i:10;s:2:"no";i:11;s:3:"yes";i:12;s:2:"no";i:13;s:7:"leaning";i:14;s:4:"fam3";i:15;s:3:"low";i:16;s:4:"dita";i:17;s:10:"2013-10-17";i:18;s:6:"Memory";i:19;s:0:"";}i:6;a:20:{i:0;i:6;i:1;s:10:"2014-05-12";i:2;s:3:"joe";i:3;s:5:"plot5";i:4;s:0:"";i:5;s:4:"oke4";i:6;i:6;i:7;s:4:"herb";i:8;s:0:"";i:9;s:0:"";i:10;s:3:"yes";i:11;s:3:"yes";i:12;s:2:"no";i:13;s:0:"";i:14;s:4:"fam1";i:15;s:3:"low";i:16;s:3:"nje";i:17;s:10:"2013-06-30";i:18;s:27:"Puff, Rubiaceae of Thailand";i:19;s:0:"";}i:7;a:20:{i:0;i:7;i:1;s:10:"2014-05-13";i:2;s:4:"dita";i:3;s:5:"plot6";i:4;s:0:"";i:5;s:4:"oke5";i:6;i:7;i:7;s:5:"shrub";i:8;s:0:"";i:9;s:0:"";i:10;s:3:"yes";i:11;s:2:"no";i:12;s:3:"yes";i:13;s:7:"leaning";i:14;s:4:"fam4";i:15;s:6:"medium";i:16;s:3:"joe";i:17;s:10:"2013-03-13";i:18;s:6:"Memory";i:19;s:0:"";}i:8;a:20:{i:0;i:8;i:1;s:10:"2014-05-14";i:2;s:3:"adi";i:3;s:5:"plot7";i:4;s:0:"";i:5;s:4:"oke6";i:6;i:8;i:7;s:4:"tree";i:8;s:0:"";i:9;s:0:"";i:10;s:3:"yes";i:11;s:2:"no";i:12;s:3:"yes";i:13;s:7:"leaning";i:14;s:4:"fam5";i:15;s:6:"medium";i:16;s:3:"cop";i:17;s:10:"2012-11-24";i:18;s:27:"Puff, Rubiaceae of Thailand";i:19;s:0:"";}i:9;a:20:{i:0;i:9;i:1;s:10:"2014-05-15";i:2;s:3:"adi";i:3;s:5:"plot8";i:4;s:0:"";i:5;s:4:"oke7";i:6;i:9;i:7;s:4:"herb";i:8;s:0:"";i:9;s:0:"";i:10;s:3:"yes";i:11;s:2:"no";i:12;s:3:"yes";i:13;s:0:"";i:14;s:4:"rub1";i:15;s:4:"high";i:16;s:3:"adi";i:17;s:10:"2012-08-07";i:18;s:6:"Memory";i:19;s:0:"";}i:10;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:11;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:12;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:13;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:14;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:15;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:16;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:17;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:18;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:19;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:20;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:21;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:22;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}i:23;a:20:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";i:11;s:0:"";i:12;s:0:"";i:13;s:0:"";i:14;s:0:"";i:15;s:0:"";i:16;s:0:"";i:17;s:0:"";i:18;s:0:"";i:19;s:0:"";}}}i:1;a:3:{s:5:"sheet";i:1;s:10:"field_name";a:9:{i:0;s:10:"unique_key";i:1;s:5:"db_id";i:2;s:10:"morphotype";i:3;s:3:"fam";i:4;s:3:"gen";i:5;s:2:"sp";i:6;s:7:"subtype";i:7;s:3:"ssp";i:8;s:8:"ssp_auth";}s:4:"data";a:10:{i:1;a:9:{i:0;s:21:"Dillenia_sufructicosa";i:1;i:345;i:2;s:0:"";i:3;s:0:"";i:4;s:8:"Dillenia";i:5;s:12:"sufructicosa";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:2;a:9:{i:0;s:8:"shorpub1";i:1;s:0:"";i:2;s:8:"shorpub1";i:3;s:16:"Dipterocarpaceae";i:4;s:6:"Shorea";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:3;a:9:{i:0;s:4:"rub1";i:1;i:1456;i:2;s:0:"";i:3;s:9:"Rubiaceae";i:4;s:7:"Pavetta";i:5;s:9:"axillaris";i:6;s:0:"";i:7;s:0:"";i:8;s:7:"Bremek.";}i:4;a:9:{i:0;s:9:"Rubiaceae";i:1;i:123;i:2;s:0:"";i:3;s:9:"Rubiaceae";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:5;a:9:{i:0;s:4:"fam1";i:1;s:0:"";i:2;s:8:"shorpub1";i:3;s:7:"Family1";i:4;s:9:"Pavetta_1";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:6;a:9:{i:0;s:4:"fam2";i:1;s:0:"";i:2;s:8:"shorpub2";i:3;s:11:"Family name";i:4;s:9:"Pavetta_2";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:7;a:9:{i:0;s:4:"fam3";i:1;s:0:"";i:2;s:8:"shorpub3";i:3;s:12:"Familly_name";i:4;s:9:"Pavetta_3";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:8;a:9:{i:0;s:4:"fam4";i:1;s:0:"";i:2;s:8:"shorpub4";i:3;s:9:"Family's ";i:4;s:9:"Pavetta_4";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:9;a:9:{i:0;s:4:"fam5";i:1;s:0:"";i:2;s:8:"shorpub5";i:3;s:13:"Family's name";i:4;s:9:"Pavetta_5";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}i:10;a:9:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";}}}i:2;a:3:{s:5:"sheet";i:2;s:10:"field_name";a:5:{i:0;s:8:"filename";i:1;s:7:"tree_id";i:2;s:12:"photographer";i:3;s:10:"plant_part";i:4;s:5:"notes";}s:4:"data";a:15:{i:1;a:5:{i:0;s:12:"IMG_0123.jpg";i:1;i:1;i:2;s:3:"adi";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:2;a:5:{i:0;s:12:"IMG_0124.jpg";i:1;i:1;i:2;s:3:"joe";i:3;s:14:"lower leafbase";i:4;s:0:"";}i:3;a:5:{i:0;s:12:"IMG_0202.jpg";i:1;i:2;i:2;s:3:"cop";i:3;s:13:"inflorescence";i:4;s:0:"";}i:4;a:5:{i:0;s:12:"IMG_0205.jpg";i:1;i:3;i:2;s:3:"adi";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:5;a:5:{i:0;s:12:"IMG_0206.jpg";i:1;i:5;i:2;s:3:"cop";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:6;a:5:{i:0;s:12:"IMG_0207.jpg";i:1;i:9;i:2;s:3:"cop";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:7;a:5:{i:0;s:12:"IMG_0208.jpg";i:1;i:5;i:2;s:4:"dita";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:8;a:5:{i:0;s:12:"IMG_0209.jpg";i:1;i:5;i:2;s:3:"adi";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:9;a:5:{i:0;s:12:"IMG_0215.jpg";i:1;i:6;i:2;s:3:"nje";i:3;s:19:"whole compound leaf";i:4;s:0:"";}i:10;a:5:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";}i:11;a:5:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";}i:12;a:5:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";}i:13;a:5:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";}i:14;a:5:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";}i:15;a:5:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";}}}i:3;a:3:{s:5:"sheet";i:3;s:10:"field_name";a:7:{i:0;s:10:"unique_key";i:1;s:5:"db_id";i:2;s:4:"name";i:3;s:5:"email";i:4;s:7:"twitter";i:5;s:7:"website";i:6;s:5:"phone";}s:4:"data";a:14:{i:1;a:7:{i:0;s:3:"joe";i:1;i:34;i:2;s:11:"Joe Bloggss";i:3;s:20:"joe.bloggs@gmail.com";i:4;s:7:"@bloggs";i:5;s:0:"";i:6;d:628138871234;}i:2;a:7:{i:0;s:3:"adi";i:1;s:0:"";i:2;s:8:"Adi Bejo";i:3;s:22:"adibejo123@yahoo.co.id";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:3;a:7:{i:0;s:3:"cop";i:1;s:0:"";i:2;s:9:"ovan pulu";i:3;s:16:"o.pulu@yahoo.com";i:4;s:0:"";i:5;s:20:"http://ambaratan.com";i:6;d:6281384349426;}i:4;a:7:{i:0;s:4:"dita";i:1;s:0:"";i:2;s:19:"Kartika Dwintaputri";i:3;s:22:"dhitatracker@gmail.com";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:5;a:7:{i:0;s:3:"nje";i:1;s:0:"";i:2;s:15:"Fitri Nurjannah";i:3;s:18:"widiw374@gmail.com";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:6;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:7;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:8;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:9;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:10;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:11;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:12;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:13;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}i:14;a:7:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";}}}i:4;a:3:{s:5:"sheet";i:4;s:10:"field_name";a:11:{i:0;s:10:"unique_key";i:1;s:4:"long";i:2;s:3:"lat";i:3;s:4:"elev";i:4;s:13:"geomorphology";i:5;s:8:"locality";i:6;s:9:"kabupaten";i:7;s:8:"province";i:8;s:6:"island";i:9;s:7:"country";i:10;s:5:"notes";}s:4:"data";a:10:{i:1;a:11:{i:0;s:5:"plot1";i:1;s:9:"110.00000";i:2;s:8:"-2.00000";i:3;s:2:"30";i:4;s:5:"Swamp";i:5;s:35:"Sample plot one, Jonesville, Borneo";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:2;a:11:{i:0;s:7:"myhouse";i:1;s:9:"111.00000";i:2;s:8:"-3.00000";i:3;s:2:"12";i:4;s:17:"Low rolling hills";i:5;s:31:"Ahmad's house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:3;a:11:{i:0;s:5:"plot3";i:1;s:8:"22.00000";i:2;s:8:"-4.00000";i:3;s:2:"13";i:4;s:17:"Low rolling hills";i:5;s:29:"dhita house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:4;a:11:{i:0;s:5:"plot4";i:1;s:9:"111.00000";i:2;s:8:"-5.00000";i:3;s:2:"14";i:4;s:17:"Low rolling hills";i:5;s:29:"fitri house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:5;a:11:{i:0;s:5:"plot5";i:1;s:9:"111.00000";i:2;s:8:"-6.00000";i:3;s:2:"15";i:4;s:17:"Low rolling hills";i:5;s:27:"nje house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:6;a:11:{i:0;s:5:"plot6";i:1;s:9:"124.00000";i:2;s:8:"-7.00000";i:3;s:2:"16";i:4;s:17:"Low rolling hills";i:5;s:27:"nur house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:7;a:11:{i:0;s:5:"plot7";i:1;s:9:"110.00000";i:2;s:8:"-8.00000";i:3;s:2:"17";i:4;s:17:"Low rolling hills";i:5;s:32:"jannah's house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:8;a:11:{i:0;s:5:"plot8";i:1;s:9:"122.00000";i:2;s:8:"-9.00000";i:3;s:2:"18";i:4;s:17:"Low rolling hills";i:5;s:41:"fitri nurjannah's house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:9;a:11:{i:0;s:5:"plot9";i:1;s:9:"123.00000";i:2;s:9:"-10.00000";i:3;s:2:"19";i:4;s:17:"Low rolling hills";i:5;s:33:"kartika's house, Sukadana, Kalbar";i:6;s:0:"";i:7;s:16:"Kalimantan Barat";i:8;s:6:"Borneo";i:9;s:9:"Indonesia";i:10;s:0:"";}i:10;a:11:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";i:3;s:0:"";i:4;s:0:"";i:5;s:0:"";i:6;s:0:"";i:7;s:0:"";i:8;s:0:"";i:9;s:0:"";i:10;s:0:"";}}}}
+clean data
+empty tmp table before insert
+====TRANSACTION READY====
+Insert tmp data 0
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('1','2014-05-07','joe','plot1','','plot1','1','tree','','','no','no','yes','','Dillenia_sufructicosa','high','joe','2014-02-01','Memory','')
+1
+Insert tmp data 1
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('2','2014-05-08','adi','plot3','','plot2','2','tree','','','no','no','no','leaning','shorpub1','medium','adi','2014-02-01','Puff, Rubiaceae of Thailand','')
+1
+Insert tmp data 2
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('3','2014-05-09','adi','myhouse','','oke','3','tree','','','no','yes','no','','Rubiaceae','high','cop','2014-05-23','Memory','')
+1
+Insert tmp data 3
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('4','2014-05-10','cop','plot3','','oke2','4','shrub','','','no','yes','no','','fam2','low','dita','2014-02-03','Puff, Rubiaceae of Thailand','')
+1
+Insert tmp data 4
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('5','2014-05-11','dita','plot4','','oke3','5','liana','','','no','yes','no','leaning','fam3','low','dita','2013-10-17','Memory','')
+1
+Insert tmp data 5
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('6','2014-05-12','joe','plot5','','oke4','6','herb','','','yes','yes','no','','fam1','low','nje','2013-06-30','Puff, Rubiaceae of Thailand','')
+1
+Insert tmp data 6
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('7','2014-05-13','dita','plot6','','oke5','7','shrub','','','yes','no','yes','leaning','fam4','medium','joe','2013-03-13','Memory','')
+1
+Insert tmp data 7
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('8','2014-05-14','adi','plot7','','oke6','8','tree','','','yes','no','yes','leaning','fam5','medium','cop','2012-11-24','Puff, Rubiaceae of Thailand','')
+1
+Insert tmp data 8
+INSERT INTO tmp_plant (`unique_key`,`date`,`obs_by`,`locn`,`microhab`,`plot`,`tag`,`habit`,`dbh`,`height`,`bud`,`flower`,`fruit`,`indiv_notes`,`det`,`confid`,`det_by`,`det_date`,`det_using`,`det_notes`) VALUES ('9','2014-05-15','adi','plot8','','oke7','9','herb','','','yes','no','yes','','rub1','high','adi','2012-08-07','Memory','')
+1
+Insert tmp data 9
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('Dillenia_sufructicosa','345','','','Dillenia','sufructicosa','','','')
+1
+Insert tmp data 10
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('shorpub1','','shorpub1','Dipterocarpaceae','Shorea','','','','')
+1
+Insert tmp data 11
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('rub1','1456','','Rubiaceae','Pavetta','axillaris','','','Bremek.')
+1
+Insert tmp data 12
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('Rubiaceae','123','','Rubiaceae','','','','','')
+1
+Insert tmp data 13
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('fam1','','shorpub1','Family1','Pavetta_1','','','','')
+1
+Insert tmp data 14
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('fam2','','shorpub2','Family name','Pavetta_2','','','','')
+1
+Insert tmp data 15
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('fam3','','shorpub3','Familly_name','Pavetta_3','','','','')
+1
+Insert tmp data 16
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('fam4','','shorpub4','Family\'s ','Pavetta_4','','','','')
+1
+Insert tmp data 17
+INSERT INTO tmp_taxon (`unique_key`,`db_id`,`morphotype`,`fam`,`gen`,`sp`,`subtype`,`ssp`,`ssp_auth`) VALUES ('fam5','','shorpub5','Family\'s name','Pavetta_5','','','','')
+1
+Insert tmp data 18
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0123.jpg','1','adi','whole compound leaf','')
+1
+Insert tmp data 19
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0124.jpg','1','joe','lower leafbase','')
+1
+Insert tmp data 20
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0202.jpg','2','cop','inflorescence','')
+1
+Insert tmp data 21
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0205.jpg','3','adi','whole compound leaf','')
+1
+Insert tmp data 22
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0206.jpg','5','cop','whole compound leaf','')
+1
+Insert tmp data 23
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0207.jpg','9','cop','whole compound leaf','')
+1
+Insert tmp data 24
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0208.jpg','5','dita','whole compound leaf','')
+1
+Insert tmp data 25
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0209.jpg','5','adi','whole compound leaf','')
+1
+Insert tmp data 26
+INSERT INTO tmp_photo (`filename`,`tree_id`,`photographer`,`plant_part`,`notes`) VALUES ('IMG_0215.jpg','6','nje','whole compound leaf','')
+1
+Insert tmp data 27
+INSERT INTO tmp_person (`unique_key`,`db_id`,`name`,`email`,`twitter`,`website`,`phone`) VALUES ('joe','34','Joe Bloggss','joe.bloggs@gmail.com','@bloggs','','628138871234')
+1
+Insert tmp data 28
+INSERT INTO tmp_person (`unique_key`,`db_id`,`name`,`email`,`twitter`,`website`,`phone`) VALUES ('adi','','Adi Bejo','adibejo123@yahoo.co.id','','','')
+1
+Insert tmp data 29
+INSERT INTO tmp_person (`unique_key`,`db_id`,`name`,`email`,`twitter`,`website`,`phone`) VALUES ('cop','','ovan pulu','o.pulu@yahoo.com','','http://ambaratan.com','6281384349426')
+1
+Insert tmp data 30
+INSERT INTO tmp_person (`unique_key`,`db_id`,`name`,`email`,`twitter`,`website`,`phone`) VALUES ('dita','','Kartika Dwintaputri','dhitatracker@gmail.com','','','')
+1
+Insert tmp data 31
+INSERT INTO tmp_person (`unique_key`,`db_id`,`name`,`email`,`twitter`,`website`,`phone`) VALUES ('nje','','Fitri Nurjannah','widiw374@gmail.com','','','')
+1
+Insert tmp data 32
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot1','110.00000','-2.00000','30','Swamp','Sample plot one, Jonesville, Borneo','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 33
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('myhouse','111.00000','-3.00000','12','Low rolling hills','Ahmad\'s house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 34
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot3','22.00000','-4.00000','13','Low rolling hills','dhita house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 35
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot4','111.00000','-5.00000','14','Low rolling hills','fitri house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 36
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot5','111.00000','-6.00000','15','Low rolling hills','nje house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 37
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot6','124.00000','-7.00000','16','Low rolling hills','nur house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 38
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot7','110.00000','-8.00000','17','Low rolling hills','jannah\'s house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 39
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot8','122.00000','-9.00000','18','Low rolling hills','fitri nurjannah\'s house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+Insert tmp data 40
+INSERT INTO tmp_location (`unique_key`,`long`,`lat`,`elev`,`geomorphology`,`locality`,`kabupaten`,`province`,`island`,`country`,`notes`) VALUES ('plot9','123.00000','-10.00000','19','Low rolling hills','kartika\'s house, Sukadana, Kalbar','','Kalimantan Barat','Borneo','Indonesia','')
+1
+====COMMIT TRANSACTION====
+store data from xls to tmp table
+====TRANSACTION READY====
+data field :morphotype=
+data field :fam=
+data field :gen=Dillenia
+data field :sp=sufructicosa
+data field :subtype=

@@ -1,0 +1,132 @@
+
+<div class="container">
+	<div class="contact">
+	<div class="contact-in">
+	<h3>Form Registrasi</h3>
+	<div class=" col-md-9 contact-left">
+		  
+	    <form method="post" action="{$basedomain}register/signup" onsubmit="return validasiForm()">
+	    	<div>
+		    	<span>Nama Depan</span>
+		    	<input type="text" class="" id="recipient-name" placeholder="" name="name" required>
+		    </div>
+		    <div>
+		    	<span>Nama Belakang</span>
+		    	<input type="text" class="" id="recipient-name" placeholder="" name="last_name">
+		    </div>
+		    <div>
+		    	<span>Email</span>
+		    	<input type="text" class="" id="recipient-name" placeholder="" name="email" required>
+		    </div>
+		    <div>
+		    	<span>Password</span>
+		    	<input type="password" class="form-control password" id="recipient-name" placeholder="" name="password" required>
+		    </div>
+		    <div>
+		    	<span>Re Password</span>
+		    	<input type="password" class="form-control repassword" id="recipient-name" placeholder="" name="repassword" required>
+		    </div>
+		    <div>
+		    	<span>Alamat</span>
+		    	<input type="text" class="" id="recipient-name" placeholder="" name="StreetName">
+		    </div>
+		    <div>
+	            <span>No Hp</span>
+	            <input type="text" class="" id="recipient-name" placeholder="" name="phone_number" required>
+	       	</div>
+	        <div>
+	            <span>No Telp</span>
+	            <input type="text" class="" id="recipient-name" placeholder="" name="phone">
+	        </div>
+            <div>
+	            <span>No Fax</span>
+	            <input type="text" class="" id="recipient-name" placeholder="" name="fax">
+	        </div>
+	        <div>
+	            <span>Nama Toko</span>
+	            <input type="text" class="" id="recipient-name" placeholder="" name="namaKantor">
+	        </div>
+	        <div>
+	            <span>Alamat Toko</span>
+	            <input type="text" class="" id="recipient-name" placeholder="" name="alamatKantor">
+	        </div>
+	        <div>
+	            <span>Provinsi</span>
+	           	<select class="form-control selectProvinsi" name="city" required>
+	           		<option value="">- Pilih Provinsi -</option>
+	           		{foreach $city as $val}
+	           		<option value="{$val.kode_wilayah}">{$val.nama_wilayah}</option>
+	           		{/foreach}
+	           	</select>
+	        </div>
+	        <div class="selectCity" style="display:none"></div>
+	        <input type="hidden" value="1" name="token">
+		    <div>
+		   		<span><input type="submit" value="Submit"></span>
+		    </div>
+	    </form>
+	</div>
+
+		<div class=" col-md-3 contact-right">
+		     	<h5>Informasi Kantor</h5>
+				<p>Thamrin City Lantai 3 Blok B 12a No. 5-02</p>
+				<br>
+				<p>Tanah Abang, Jakarta Pusat</p>
+		 	 	<p>Email: <a href="mailto:admin@lelangbusana.com">admin@lelangbusana.com</a></p>
+		   		
+	    </div>
+		<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+	
+
+<script type="text/javascript">
+	
+	{literal}
+
+	$(document).on('change','.selectProvinsi', function(){
+
+		var id = $(this).val();
+		$.post(basedomain+'register/ajax',{idprovinsi:id}, function(data){
+
+			var html = "";
+
+			if (data.status==true){
+				
+
+				html += '<div>';
+			    html += '        <span>Kota</span>';
+			    html += '       	<select class="form-control" name="city">';
+				$.each(data.res, function(i,value){
+					$.each(value.city, function(i,val){
+						html += '       		<option value="'+val.kode_wilayah+'">'+val.nama_wilayah+'</option>';
+					})
+				})
+			    html += '       	</select>';
+		        html += '  </div>';
+
+				
+			}
+			
+			$('.selectCity').css('display','block');
+			$('.selectCity').append(html);
+			
+
+		}, "JSON")	
+	})
+	
+	function validasiForm()
+	{
+		var password = $('.password').val();
+		var repassword = $('.repassword').val();
+		
+		if (password !== repassword){
+			alert('Password tidak sesuai');
+			return false;	
+		} 
+
+	}
+	{/literal}
+</script>
