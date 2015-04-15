@@ -43,9 +43,7 @@ class paket extends Controller {
     		$data['data'] = $content;
     	}
 
-
-		// pr($data);
-
+    	
 		$this->view->assign('paket', $data);
     	return $this->loadView('paket/detail');
     }
@@ -94,7 +92,7 @@ class paket extends Controller {
 	    		
     			if ($grid == 2){
 	    			$getSlider[$key]['grid'] = 1;
-	    			$i=0;
+	    			$grid=0;
 	    		}else{
 	    			$getSlider[$key]['grid'] = 0;
 	    			$grid++;

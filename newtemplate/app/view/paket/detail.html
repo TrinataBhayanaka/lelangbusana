@@ -114,19 +114,19 @@
 							<div class="resp-tabs-container">
 							    <h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0"><span class="resp-arrow"></span>Product Description</h2><div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
 									<div class="facts">
-									  <p >{$paket.data.description}</p>
+									  <p >{$paket.data.description|html_entity_decode}</p>
 										     
 							        </div>
 							    	</div>
 							      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>Additional Information</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
 									<div class="facts">									
-										<p > {$paket.data.additional}</p>
+										<p > {$paket.data.additional|html_entity_decode}</p>
 										
 							        </div>	
 								</div>									
 							      <h2 class="resp-accordion" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>Reviews</h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-2">
 									 <div class="facts">
-									  <p > {$paket.data.review}</p>
+									  <p > {$paket.data.review|html_entity_decode}</p>
 										 
 							     </div>	
 							 </div>
@@ -179,7 +179,7 @@
 
 				{if $paket.data.category}
 				{foreach $paket.data.color as $val}
-				<li><a class="{$val}" href="javascript:void(0)"></a></li>
+				<li><a style="background:{$val}" href="javascript:void(0)"></a></li>
 				{/foreach}
 				{/if}
 				{*}
