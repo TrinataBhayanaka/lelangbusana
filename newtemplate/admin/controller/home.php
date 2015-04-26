@@ -34,7 +34,10 @@ class home extends Controller {
 
 				$data[$key]['posted_date'] = dateFormat($val['posted_date'],'article');
 
-				if($val['n_status'] == '1') {
+				if($val['n_status'] == '2') {
+					$data[$key]['n_status'] = 'Sold Out';
+					$data[$key]['status_color'] = 'blue';
+				}else if($val['n_status'] == '1') {
 					$data[$key]['n_status'] = 'Publish';
 					$data[$key]['status_color'] = 'green';
 				} else {

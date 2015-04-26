@@ -82,7 +82,7 @@ class marticle extends Database {
 	
 	function get_article($type=1)
 	{
-		$query = "SELECT * FROM {$this->prefix}_news_content WHERE articleType  IN (1,2,3) AND n_status = '1' OR n_status = '0'  ORDER BY created_date DESC";
+		$query = "SELECT * FROM {$this->prefix}_news_content WHERE articleType  IN (1,2,3)  ORDER BY created_date DESC";
 		// pr($query);
 		$result = $this->fetch($query,1);
 
@@ -170,7 +170,8 @@ class marticle extends Database {
 		$result = $this->fetch($query,0);
 
 		if($result['posted_date'] != '') $result['posted_date'] = dateFormat($result['posted_date'],'dd-mm-yyyy');
-		($result['n_status'] == 1) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
+		($result['n_status'] == 2) ? $result['soldout'] = 'checked' : $result['soldout'] = '';
+		($result['n_status'] == 1 or $result['n_status']==2) ? $result['n_status'] = 'checked' : $result['n_status'] = '';
 		($result['topcontent'] == 1) ? $result['topcontent'] = 'checked' : $result['topcontent'] = '';
 		($result['slider_image'] == 1) ? $result['slider_image'] = 'checked' : $result['slider_image'] = '';
 

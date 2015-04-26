@@ -38,6 +38,10 @@
                             {*}<span>$179.00  | <label class="cat-in"> </label> <a href="#">Add to Cart </a></span>{/*}
                         </div>
                         {/foreach}
+
+                        {else}
+
+                        <p>Data tidak tersedia</p>
                         {/if}
                         {*}
                         <div class="col-md-4 you-para">
@@ -88,6 +92,19 @@
                         </div>{/*}
                         <div class="clearfix"> </div>
                     </div>
+                </div>
+                <div class="pages">   
+                  <div class="limiter visible-desktop">
+                    {*}<label>Showing 1-10 data</label>{/*}
+                  </div>
+                  <ul class="dc_pagination dc_paginationA dc_paginationA06">
+                        <li><a href="{$basedomain}home/index/?pid=1"><<</a></li>
+                      <li><a href="{$basedomain}home/index/?pid={$prev}">Prev</a></li>
+                      <li><a href="{$basedomain}home/index/?pid={$next}">Next</a></li>
+                      {*}<li><a href="javascript:void(0)">3</a></li>
+                      <li><a href="javascript:void(0)" class="current"></a></li>{/*}
+                    </ul>
+                  <div class="clearfix"></div>
                 </div>
             </div>
             <div class="col-md-3 col-m-left">
@@ -146,8 +163,12 @@
                     <div class="clearfix"> </div>
                 </div>
                 {/*}
+
+
             </div>
+            
             <div class="clearfix"> </div>
+
             </div>
             <!---->
                   

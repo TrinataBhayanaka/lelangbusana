@@ -53,10 +53,19 @@ class article extends Controller {
 		global $CONFIG;
 		
 		if(isset($_POST['n_status'])){
-			if($_POST['n_status']=='on') $_POST['n_status']=1;
+
+			if(isset($_POST['soldout'])){
+				if($_POST['soldout']=='on') $_POST['n_status']=2;
+			}else{
+				if($_POST['n_status']=='on') $_POST['n_status']=1;
+			}
+
+			
 		} else {
 			$_POST['n_status']=0;
 		}
+
+		
 
 		if(isset($_POST['topcontent'])){
 			if($_POST['topcontent']=='on') $_POST['topcontent']=1;

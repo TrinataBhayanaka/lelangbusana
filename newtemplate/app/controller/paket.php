@@ -146,7 +146,19 @@ class paket extends Controller {
 	    		$no++;
     		}
 
+    		
+    		$grid = 0;
+    		foreach ($getSlider as $key => $value) {
+	    		
+    			if ($grid == 2){
+	    			$getSlider[$key]['grid'] = 1;
+	    			$grid=0;
+	    		}else{
+	    			$getSlider[$key]['grid'] = 0;
+	    			$grid++;
+	    		}
 
+	    	}
     	}
 
     	$getProductSold = $this->contentHelper->getArticle(false, array('sold'=>2, 'type'=>2));
@@ -192,7 +204,18 @@ class paket extends Controller {
 	    		$no++;
     		}
 
+    		$grid = 0;
+    		foreach ($getSlider as $key => $value) {
+	    		
+    			if ($grid == 2){
+	    			$getSlider[$key]['grid'] = 1;
+	    			$grid=0;
+	    		}else{
+	    			$getSlider[$key]['grid'] = 0;
+	    			$grid++;
+	    		}
 
+	    	}
     	}
 
     	$getProductSold = $this->contentHelper->getArticle(false, array('sold'=>2, 'type'=>3));

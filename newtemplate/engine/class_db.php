@@ -342,8 +342,8 @@ class Database
 			case '0':
 				
 				$condition = $data['condition'];
-				$limit = intval(@$data['limit']);
-				if ($limit>0) $limit = " LIMIT {$limit}";
+				$limit = @$data['limit'];
+				if (isset($limit)) $limit = " LIMIT {$limit}";
 				else $limit = "";
 				$where = "";
 				if ($condition) $whereCondition = " {$condition} ";

@@ -12,7 +12,7 @@ class contentHelper extends Database {
 
 	}
 
-    function getArticle($id=false, $data=array(), $debug=false)
+    function getArticle($id=false, $data=array(), $start=0, $limit=10, $debug=false)
     {
 
         $filter = "";
@@ -46,7 +46,7 @@ class contentHelper extends Database {
                 'table'=>"{$this->prefix}_news_content ",
                 'field'=>"*",
                 'condition' => "{$n_status} {$type} {$filter} {$topcontent} {$slider_image} {$all} {$orderby}",
-                'limit' => '100',
+                'limit' => "{$start},{$limit}",
                 );
 
         $res = $this->lazyQuery($sql,$debug);
